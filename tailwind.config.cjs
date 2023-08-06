@@ -11,6 +11,9 @@ const config = {
           },
         },
       },
+      animation: {
+        'spin-slow': 'spin 60s linear infinite',
+      },
     },
   },
 

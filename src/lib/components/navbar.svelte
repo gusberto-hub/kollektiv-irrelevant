@@ -1,20 +1,26 @@
-<div
-  class="flex p-4 bg-white mb-16 shadow-lg bg-neutral text-neutral-content sticky top-0 z-10"
->
-  <div class="flex-1 px-2 mx-2">
-    <a class="text-lg font-bold" href="/">Kollektiv Irrelevant</a>
-  </div>
+<script>
+  import logo from '$lib/assets/logo-kollektiv-irrelevant.png'
+</script>
 
-  <div class="dropdown dropdown-left lg:hidden">
+<div class="flex justify-between sticky top-0 px-8 py-4">
+  <a class="" href="/">
+    <img
+      class="w-20 animate-spin-slow"
+      src={logo}
+      alt="logo Kollektiv Irrelevant"
+    />
+  </a>
+
+  <div class="dropdown dropdown-left md:hidden">
     <div tabindex="-1" class="m-1 btn">Links</div>
     <ul
       tabindex="-1"
-      class="bg-neutral rounded-box shadow text-neutral-content p-2 w-52 flex gap-4 bg-red-500"
+      class="bg-neutral rounded-box shadow text-neutral-content p-2 w-52 flex gap-4"
     >
       <a class="btn btn-ghost btn-sm rounded-btn" href="/projects">
         Artists
       </a>
-      <a class="btn btn-ghost btn-sm rounded-btn" href="/posts">
+      <a class="btn btn-ghost btn-sm rounded-btn" href="/events">
         Events
       </a>
       <a class="btn btn-ghost btn-sm rounded-btn" href="/about">
@@ -23,18 +29,11 @@
     </ul>
   </div>
 
-  <div class="flex-none hidden px-2 mx-2 lg:flex">
-    <div class="flex items-stretch gap-4">
-      <a class="btn btn-ghost btn-sm rounded-btn" href="/projects">
-        Artists
-      </a>
-      <a class="btn btn-ghost btn-sm rounded-btn" href="/posts">
-        Events
-      </a>
-      <a class="btn btn-ghost btn-sm rounded-btn" href="/about">
-        About
-      </a>
-      <div class="px-4" />
+  <div class="hidden md:flex justify-end">
+    <div class="flex gap-4">
+      <a class="" href="/projects"> Artists </a>
+      <a class="" href="/events"> Events </a>
+      <a class="" href="/about"> About </a>
     </div>
   </div>
 </div>

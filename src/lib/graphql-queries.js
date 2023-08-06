@@ -79,6 +79,36 @@ export const postQuery = gql`
   }
 `
 
+const EVENT_FRAGMENT = gql`
+  fragment EventDetails on Event {
+    title
+    slug
+    date
+    location
+    flyerImage {
+      url
+    }
+  }
+`
+
+export const eventsQuery = gql`
+  ${EVENT_FRAGMENT}
+  query GetEvents {
+    events {
+      ...EventDetails
+    }
+  }
+`
+
+export const eventQuery = gql`
+  ${EVENT_FRAGMENT}
+  query GetEvent($slug: String!) {
+    event(where: { slug: $slug }) {
+      ...EventDetails
+    }
+  }
+`
+
 export const socialsQuery = gql`
   query GetSocials {
     socials {
