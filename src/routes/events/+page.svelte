@@ -1,47 +1,29 @@
 <script>
-  import { page } from '$app/stores'
-  import Head from '$components/head.svelte'
-  import { siteMetadataStore } from '$stores/site-metadata'
-  import { marked } from 'marked'
-  import { onMount } from 'svelte'
-  export let data
-  let pathname
+	import { createQuery } from '@tanstack/svelte-query';
+	import EventCard from '../../lib/eventCard.svelte';
+	import { getEvents } from './loaders';
 
-  onMount(async () => {
-    pathname = $page.url.pathname
-  })
-
-  const {
-    siteUrl,
-    name: siteName,
-    openGraphDefaultImage,
-  } = $siteMetadataStore || []
+	const query = createQuery({
+		queryKey: ['events'],
+		queryFn: getEvents
+	});
 </script>
 
-<Head
-  title={`Events · ${siteName}`}
-  description={`A list of recent blog posts.`}
-  image={openGraphDefaultImage.url}
-  url={`${siteUrl}${pathname}`}
-/>
+<h1 class="font-extrabold text-4xl">the events page</h1>
 
-<h1 class="text-4xl mb-10 font-extrabold">Events</h1>
+{#if $query.isPending}
+	<div class="loading loading-spinner loading-lg" />
+{/if}
 
-<div class="grid gap-y-20">
-  {#each data.events as { title, slug, flyerImage, location, date }}
-    <a href={`/events/${slug}`} class="btn btn-outline btn-primary">
-      <div class="">
-        <h2 class="font-bold text-4xl">{title}</h2>
-        <h3>{location}</h3>
-        <p>{date}</p>
-      </div>
-      <figure class="">
-        <img
-          class=""
-          src={flyerImage.url}
-          alt={`Cover image for ${title}`}
-        />
-      </figure>
-    </a>
-  {/each}
-</div>
+{#if $query.error}
+	An error has occurred:
+	{$query.error.message}
+{/if}
+
+{#if $query.isSuccess}
+	<div class="flex flex-col gap-8">
+		{#each $query.data.events as event}
+			<EventCard eventData={event} />
+		{/each}
+	</div>
+{/if}
