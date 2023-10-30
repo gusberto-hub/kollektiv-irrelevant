@@ -21,7 +21,7 @@
 <Head
   title={`Events · ${siteName}`}
   description={`A list of recent blog posts.`}
-  image={openGraphDefaultImage.url}
+  image={openGraphDefaultImage?.url}
   url={`${siteUrl}${pathname}`}
 />
 

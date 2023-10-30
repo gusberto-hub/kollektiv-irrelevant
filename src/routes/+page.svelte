@@ -18,7 +18,7 @@
 <Head
   title={`${siteName} · ${authorName}`}
   {description}
-  image={openGraphDefaultImage.url}
+  image={openGraphDefaultImage?.url}
   url={`${siteUrl}`}
 />
 
