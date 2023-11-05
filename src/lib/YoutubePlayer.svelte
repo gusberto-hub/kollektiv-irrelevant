@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 
-	export let player;
-	export let videoId = '';
+	let player;
+	export let videoId;
 
 	const ytPlayerId = 'youtube-player';
 

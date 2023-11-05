@@ -3,8 +3,6 @@
 	import ArtistSelection from './_components/ArtistSelection.svelte';
 	import NextEvents from './_components/NextEvents.svelte';
 
-	let player;
-
 	export let data;
 
 	const { events, artists } = data;
@@ -17,7 +15,7 @@
 		alt="people dancing"
 	/>
 	<div class="w-full aspect-video pointer-events-none">
-		<YoutubePlayer bind:player videoId="c9VEKD9N834" />
+		<YoutubePlayer videoId="c9VEKD9N834" />
 	</div>
 	<div class="hero-overlay bg-opacity-60" />
 	<div class="hero-content text-center text-neutral-content">
