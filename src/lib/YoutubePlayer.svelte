@@ -7,24 +7,21 @@
 	const ytPlayerId = 'youtube-player';
 
 	onMount(() => {
-		function load() {
-			player = new YT.Player(ytPlayerId, {
+		window.YT.ready(function () {
+			player = new window.YT.Player(ytPlayerId, {
 				height: '100%',
 				width: '100%',
 				videoId,
-				playerVars: { autoplay: 1, enablejsapi: 1, loop: 1, playlist: videoId, controls: 0 },
+				playerVars: { loop: 1, playlist: videoId, controls: 0 },
 				events: {
-					onReady: function (e) {
-						e.target.mute();
-					}
+					onReady: onPlayerReady
 				}
 			});
-		}
+		});
 
-		if (window.YT) {
-			load();
-		} else {
-			window.onYouTubeIframeAPIReady = load;
+		function onPlayerReady(event) {
+			event.target.mute();
+			event.target.playVideo();
 		}
 	});
 </script>
