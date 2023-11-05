@@ -1,6 +1,5 @@
 <script>
 	export let artists;
-	console.log(artists);
 </script>
 
 <div class="pt-24">

@@ -1,10 +1,9 @@
 <script>
-	import EventCard from '../../../lib/EventCard.svelte';
+	import EventCard from '../../../lib/EEventCard.svelte';
 	export let data;
 
 	const { event } = data;
 
-	console.log(data);
 </script>
 
 <!-- {#if $query.isPending}

@@ -3,7 +3,7 @@
 	import { browser } from '$app/environment';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
-	import Navbar from '../lib/Navbar.svelte';
+	import Navbar from '../lib/NNavbar.svelte';
 
 	const queryClient = new QueryClient({
 		defaultOptions: {

@@ -1,5 +1,5 @@
 <script>
-	import EventCard from '$lib/EventCard.svelte';
+	import EventCard from '$lib/EEventCard.svelte';
 	export let events;
 </script>
 

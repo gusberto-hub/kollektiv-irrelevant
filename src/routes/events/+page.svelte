@@ -1,6 +1,6 @@
 <script>
 	import { createQuery } from '@tanstack/svelte-query';
-	import EventCard from '../../lib/EventCard.svelte';
+	import EventCard from '../../lib/EEventCard.svelte';
 	import { getEvents } from './loaders';
 
 	const query = createQuery({
