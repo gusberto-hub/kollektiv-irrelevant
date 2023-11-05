@@ -3,7 +3,7 @@
 	export let eventData;
 </script>
 
-<div class="flex flex-row gap-8">
+<div class="flex gap-8 font-heading flex-col sm:flex-row">
 	<img alt={eventData.title} src={eventData.flyerImage?.url} />
 	<div class="flex flex-col gap-4">
 		<a href={'events/' + eventData.slug}>
@@ -20,7 +20,7 @@
 		{#if eventData.lineUp}
 			<div>
 				<p>LineUp</p>
-				<h4 class="font-bold">{eventData.lineUp}</h4>
+				<SvelteMarkdown source={eventData.lineUp} />
 			</div>
 		{/if}
 		{#if eventData.aboutEvent}

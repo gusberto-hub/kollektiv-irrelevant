@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+	.font-condensed {
+		font-stretch: condensed;
+	}
+}
+
 h3 {
 	@apply font-bold text-xl;
 }

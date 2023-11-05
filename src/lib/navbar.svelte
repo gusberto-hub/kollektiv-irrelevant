@@ -5,51 +5,41 @@
 		{ name: 'About', href: '/about' }
 	];
 
-	import logo from '$lib/assets/logo.png';
+	import logo from '$lib/assets/logo-img.png';
 	import typeLogo from '$lib/assets/schriftlogo.svg';
+
+	let isOpen = false;
 </script>
 
-<header class="navbar z-10 fixed top-0">
-	<nav class="navbar-start p-4">
-		<div class="dropdown">
-			<!-- <label tabIndex={0} class="btn btn-ghost sm:hidden">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-5 w-5"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					><path
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth="2"
-						d="M4 6h16M4 12h8m-8 6h16"
-					/>
-				</svg>
-			</label> -->
-			<ul
-				tabIndex={0}
-				class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-			>
-				{#each navbarItems as item}
-					<li>
-						<a href={item.href}>
-							{item.name}
-						</a>
-					</li>
-				{/each}
-			</ul>
-		</div>
-		<a class="text-bases font-mono font-bold mix-blend-difference" href="/">
-			<img src={logo} alt="kollektiv irrelevant logo" class="h-10 w-10 inline animate-spin-slow" />
-			<img src={typeLogo} alt="kollektiv irrelevant logo" class="h-10 inline" />
+<header class="navbar justify-between z-10 fixed top-0 h-20">
+	<nav class="px-4 py-2">
+		<a class="" href="/">
+			<img src={logo} alt="kollektiv irrelevant logo" class="h-12 w-12 inline animate-spin-slow" />
+			<img src={typeLogo} alt="kollektiv irrelevant logo" class="h-12 inline" />
 		</a>
 	</nav>
-	<nav class="navbar-end hidden sm:flex">
-		<ul class="menu menu-horizontal px-1">
+	<nav class="hidden sm:flex">
+		<ul class="menu menu-horizontal menu-lg uppercase px-1">
 			{#each navbarItems as item}
 				<li><a href={item.href}>{item.name}</a></li>
 			{/each}
 		</ul>
 	</nav>
+	<details class="dropdown dropdown-bottom dropdown-end sm:hidden">
+		<summary class="btn btn-ghost sm:hidden" tabindex="0"> Menu </summary>
+
+		<ul
+			tabindex="0"
+			class="dropdown-content z-[1] shadow bg-base-100 rounded-box overflow-hidden w-52"
+		>
+			<!-- <ul tabIndex={0} class="menu dropdown-content mt-3 z-[1] p-2 shadow bg-secondary rounded-box w-52"> -->
+			{#each navbarItems as item}
+				<li class="py-4 px-4 hover:bg-secondary/60">
+					<a class="" href={item.href}>
+						{item.name}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</details>
 </header>
