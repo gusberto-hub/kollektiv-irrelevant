@@ -14,7 +14,7 @@
 		class="w-full h-full object-cover"
 		alt="people dancing"
 	/>
-	<div class="w-full aspect-video pointer-events-none">
+	<div class="">
 		<YoutubePlayer videoId="c9VEKD9N834" />
 	</div>
 	<div class="hero-overlay bg-opacity-60" />
