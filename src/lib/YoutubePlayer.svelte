@@ -22,6 +22,7 @@
 		function onPlayerReady(event) {
 			event.target.mute();
 			event.target.playVideo();
+			console.log(event.target);
 		}
 	});
 </script>

@@ -8,6 +8,15 @@ export default {
 		fontFamily: {
 			sans: ['Anybody', 'sans-serif']
 		},
+		fontSize: {
+			sm: '0.8rem',
+			base: '1rem',
+			xl: '1.414rem',
+			'2xl': '2rem',
+			'3xl': '2.827rem',
+			'4xl': '4rem',
+			'5xl': '5.653rem'
+		},
 		extend: {
 			animation: {
 				'spin-slow': 'spin 9s linear infinite'
@@ -42,7 +51,7 @@ export default {
 					secondary: '#0000ff',
 					accent: '#ffdf00',
 					neutral: '#1a1c32',
-					'base-100': '#121323'
+					'base-100': '#0e0e1a'
 				}
 			}
 		]

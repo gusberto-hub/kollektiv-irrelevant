@@ -19,14 +19,14 @@
 	</div>
 	<div class="hero-overlay bg-opacity-60" />
 	<div class="hero-content text-center text-neutral-content">
-		<div class="font-heading">
+		<div class="font-heading leading-tight">
 			<h1
-				class="mb-5 text-4xl font-bold hover:font-[900] hover:scale-125 transition-all text-shadow"
+				class="mb-5 text-3xl lg:text-4xl font-bold hover:font-[900] hover:scale-125 transition-all text-shadow"
 			>
-				<span class="text-6xl uppercase block font-condensed">Artist Collective</span> based in Solothurn
+				<span class="uppercase block font-condensed">Artist Collective</span> based in Solothurn
 			</h1>
-			<p class="mb-5 text-3xl">Platform & Network</p>
-			<a class="btn btn-primary" href="https://youtube.com">watch video</a>
+			<p class="mb-5 text-2xl">Platform & Network</p>
+			<a class="btn btn-lg btn-primary" href="https://youtube.com">watch video</a>
 		</div>
 	</div>
 </div>

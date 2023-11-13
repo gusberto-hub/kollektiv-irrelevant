@@ -1,29 +1,25 @@
 <script>
-	import { createQuery } from '@tanstack/svelte-query';
 	import EventCard from '../../lib/EventCard.svelte';
-	import { getEvents } from './loaders';
 
-	const query = createQuery({
-		queryKey: ['events'],
-		queryFn: getEvents
-	});
+	export let data;
+	const { events } = data;
 </script>
 
-<h1 class="font-extrabold text-4xl">the events page</h1>
+<h1 class="font-extrabold uppercase text-4xl">next</h1>
 
-{#if $query.isPending}
+<!-- {#if $query.isPending}
 	<div class="loading loading-spinner loading-lg" />
-{/if}
+{/if} -->
 
-{#if $query.error}
+<!-- {#if $query.error}
 	An error has occurred:
 	{$query.error.message}
-{/if}
+{/if} -->
 
-{#if $query.isSuccess}
-	<div class="flex flex-col gap-8">
-		{#each $query.data.events as event}
-			<EventCard eventData={event} />
-		{/each}
-	</div>
-{/if}
+<!-- {#if $query.isSuccess} -->
+<div class="flex flex-col gap-8">
+	{#each events as event}
+		<EventCard eventData={event} />
+	{/each}
+</div>
+<!-- {/if} -->

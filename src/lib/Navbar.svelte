@@ -14,7 +14,11 @@
 <header class="navbar justify-between z-10 fixed top-0 h-20">
 	<nav class="px-4 py-2">
 		<a class="" href="/">
-			<img src={logo} alt="kollektiv irrelevant logo" class="h-12 w-12 inline animate-spin-slow" />
+			<img
+				src={logo}
+				alt="kollektiv irrelevant logo"
+				class="h-12 w-12 mr-2 inline animate-spin-slow"
+			/>
 			<img src={typeLogo} alt="kollektiv irrelevant logo" class="h-12 inline" />
 		</a>
 	</nav>
