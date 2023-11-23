@@ -24,7 +24,7 @@
 
 <!-- <QueryClientProvider> -->
 <Navbar />
-<main class="p-6 pt-36 pb-24">
+<main class="p-6 pt-36 pb-24 max-w-7xl mx-auto">
 	<slot />
 </main>
 <footer class="footer fixed bottom-0 items-center p-4 text-neutral-content">

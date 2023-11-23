@@ -4,8 +4,6 @@ export async function load() {
 	const eventsResponse = await getCurrentEvents();
 	const artistsResponse = await getStartPageArtists();
 
-	console.log('EVENTS', eventsResponse);
-
 	return { events: eventsResponse.data.events, artists: artistsResponse.data.artists };
 }
 
