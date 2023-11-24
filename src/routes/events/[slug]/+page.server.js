@@ -10,11 +10,11 @@ const getEvent = (slug) =>
 		.post('', {
 			query: `{
 				event (where: {slug: "${slug}"}) {
-					id
 					title
 					aboutEvent
 					lineUp
 					location
+					locationUrl
 					slug
 					ticketsLink
 					startDate
@@ -24,6 +24,16 @@ const getEvent = (slug) =>
 					  url
 					  width
 					}
+					artists {
+						artistImage {
+						  url
+						}
+						name
+						socialLinks {
+						  name
+						  url
+						}
+					  }
 				  }
                 }`
 		})
