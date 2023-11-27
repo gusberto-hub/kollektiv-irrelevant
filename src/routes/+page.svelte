@@ -1,5 +1,5 @@
 <script>
-	import YoutubePlayer from '../lib/YoutubePlayer.svelte';
+	import YoutubePlayer from './_components/YoutubePlayer.svelte';
 	import ArtistSelection from './_components/ArtistSelection.svelte';
 	import NextEvents from './_components/NextEvents.svelte';
 
@@ -14,10 +14,10 @@
 		class="w-full h-full object-cover"
 		alt="people dancing"
 	/>
-	<!-- <div class="w-full h-full">
+	<div class="w-full h-full">
 		<YoutubePlayer videoId="c9VEKD9N834" />
-	</div> -->
-	<!-- <div class="hero-overlay bg-opacity-60" /> -->
+	</div>
+	<div class="hero-overlay bg-opacity-60" />
 	<div class="hero-content text-center text-neutral-content">
 		<div class="font-heading leading-tight">
 			<h1

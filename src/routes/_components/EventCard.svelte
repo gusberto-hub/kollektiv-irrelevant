@@ -1,5 +1,5 @@
 <script>
-	import formatDateRange from '../helpers/formatDateRange';
+	import formatDateRange from '../../helpers/formatDateRange';
 	export let eventData;
 </script>
 

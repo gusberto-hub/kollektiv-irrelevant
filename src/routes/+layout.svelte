@@ -1,13 +1,11 @@
 <script>
 	import '../app.css';
-	import { browser } from '$app/environment';
 	// import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
-	import Navbar from '../lib/Navbar.svelte';
+	import Navbar from './_components/Navbar.svelte';
 	import InstagramLogo from 'phosphor-svelte/lib/InstagramLogo';
 	import TiktokLogo from 'phosphor-svelte/lib/TiktokLogo';
 	import YoutubeLogo from 'phosphor-svelte/lib/YoutubeLogo';
-	import YoutubePlayer from '$lib/YoutubePlayer.svelte';
 
 	// const queryClient = new QueryClient({
 	// 	defaultOptions: {
