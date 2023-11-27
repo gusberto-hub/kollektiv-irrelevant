@@ -1,5 +1,6 @@
 <script>
-	import ArtistCard from './artistCard.svelte';
+	import ArtistCard from './ArtistCard.svelte';
+
 
 	export let data;
 
