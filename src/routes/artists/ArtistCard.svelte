@@ -23,7 +23,7 @@
 				<div class="flex flex-col gap-4 items-start">
 					<button class="btn w-fit btn-secondary btn-sm flex">socials</button>
 					{#each artist.socialLinks as link}
-						<a class="link flex gap-2 items-center text-xl" href={link.url} target="_blank">
+						<a class="link flex gap-2 items-center md:text-xl" href={link.url} target="_blank">
 							<ArrowSquareOut />{link.name}
 						</a>
 					{/each}
@@ -38,7 +38,7 @@
 						showBio ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
 					}`}
 				>
-					<p class="sm:text-base overflow-hidden">{artist.artistBio}</p>
+					<p class="text-sm sm:text-base overflow-hidden">{artist.artistBio}</p>
 				</div>
 			{/if}
 		</div>

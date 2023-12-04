@@ -1,21 +1,29 @@
 import hygraphApi from '../../helpers/axios';
 
 export async function load() {
-	const response = await getArtists();
-
-	console.log(response.data.artists);
-
-	return response.data;
+	const teamMembers = await getStartPageArtists();
+	return teamMembers.data;
 }
 
-const artistsQuery = {
-	operationName: 'fetchArtists',
-	query: `query fetchArtists { artists (where: {onStartPage: true}) { id name artistImage { url } } }`,
-	variables: {}
-};
-
-const getArtists = () =>
+const getStartPageArtists = () =>
 	hygraphApi
-		.post('/', artistsQuery)
-		.then((data) => data.data)
+		.post('', {
+			query: `{page(where: {pageTitle: "About"}) {
+			  pageTitle
+			  pageDescription
+			}
+			teamMembersConnection(orderBy: name_DESC) {
+			  edges {
+				node {
+				  name
+				  role
+				  picture {
+					url
+				  }
+				}
+			  }
+			}
+		  }`
+		})
+		.then((res) => res.data)
 		.catch((err) => console.log(err));

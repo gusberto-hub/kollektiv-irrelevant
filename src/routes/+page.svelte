@@ -1,5 +1,5 @@
 <script>
-	import YoutubePlayer from './_components/YoutubePlayer.svelte';
+	import YoutubePlayer from './_components/YoutubeFullscreen.svelte';
 	import ArtistSelection from './_components/ArtistSelection.svelte';
 	import NextEvents from './_components/NextEvents.svelte';
 
