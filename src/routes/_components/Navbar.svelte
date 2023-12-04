@@ -7,12 +7,13 @@
 
 	import logo from '$lib/assets/logo-img.png';
 	import typeLogo from '$lib/assets/schriftlogo.svg';
+	import { DotsSixVertical } from 'phosphor-svelte';
 
 	let isOpen = false;
 </script>
 
 <header class="navbar justify-between z-10 fixed top-0 h-20 max-w-7xl left-1/2 -translate-x-1/2">
-	<nav class="px-4 py-2">
+	<nav class="px-4 py-2 z-10">
 		<a class="" href="/">
 			<img
 				src={logo}
@@ -29,21 +30,36 @@
 			{/each}
 		</ul>
 	</nav>
-	<details class="dropdown dropdown-bottom dropdown-end sm:hidden">
-		<summary class="btn btn-ghost sm:hidden" tabindex="0"> Menu </summary>
 
-		<ul
-			tabindex="0"
-			class="dropdown-content z-[1] shadow bg-base-100 rounded-box overflow-hidden w-52"
-		>
-			<!-- <ul tabIndex={0} class="menu dropdown-content mt-3 z-[1] p-2 shadow bg-secondary rounded-box w-52"> -->
-			{#each navbarItems as item}
-				<li class="py-4 px-4 hover:bg-secondary/60">
-					<a class="" href={item.href}>
-						{item.name}
-					</a>
-				</li>
+	<button on:click={() => (isOpen = !isOpen)} class="absolute top-4 right-4 z-20 sm:hidden"
+		><DotsSixVertical weight="bold" class="w-8 h-8" /></button
+	>
+	<div
+		class={`sm:hidden bg-base-100/80 backdrop-blur-lg absolute transition-all w-screen h-screen top-0 left-0 text-base-content flex flex-col ${
+			isOpen ? 'opacity-100 menu-open' : 'opacity-0 pointer-events-none duration-300'
+		}`}
+	>
+		<div class="text-3xl p-4 flex flex-col w-full font-heading gap-4 font-bold pt-28 ml-[8.4rem]">
+			{#each navbarItems as item, i}
+				<a
+					on:click={() => (isOpen = false)}
+					href={item.href}
+					style={`animation-delay: ${i * 100}ms`}>{item.name}</a
+				>
 			{/each}
-		</ul>
-	</details>
+		</div>
+	</div>
 </header>
+
+<style>
+	.menu-open a {
+		animation: fadeIn 200ms ease-out backwards;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateX(-2em);
+		}
+	}
+</style>
