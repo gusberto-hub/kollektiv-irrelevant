@@ -12,7 +12,9 @@
 	let isOpen = false;
 </script>
 
-<header class="navbar justify-between z-10 fixed top-0 h-20 max-w-7xl left-1/2 -translate-x-1/2">
+<header
+	class="navbar justify-between z-10 fixed top-0 h-20 max-w-maxTotalWidth left-1/2 -translate-x-1/2"
+>
 	<nav class="px-4 py-2 z-10">
 		<a class="" href="/">
 			<img

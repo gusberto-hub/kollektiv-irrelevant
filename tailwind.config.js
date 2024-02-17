@@ -26,6 +26,9 @@ export default {
 			},
 			fontFamily: {
 				heading: ['Anybody', 'sans-serif']
+			},
+			maxWidth: {
+				maxTotalWidth: '98rem'
 			}
 		}
 	},
@@ -51,7 +54,8 @@ export default {
 					secondary: '#0000ff',
 					accent: '#ffdf00',
 					neutral: '#1a1c32',
-					'base-100': '#0e0e1a'
+					'base-100': '#0e0e1a',
+					'base-200': '#0c0c09'
 				}
 			}
 		]
