@@ -2,7 +2,7 @@
 	export let data;
 </script>
 
-<div class="grid gap-4">
+<div class="grid gap-4 pt-40">
 	<div class="shared-grid gap-4">
 		<h1 class="font-extrabold uppercase text-2xl md:text-4xl hyphens-auto col-start-4 col-end-13">
 			das Kollektiv

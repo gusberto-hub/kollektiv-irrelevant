@@ -59,3 +59,14 @@ export const getPastEvents = () => {
 		.then((data) => data.data)
 		.catch((err) => console.log(err));
 };
+
+export const getPageMetaData = () => {
+	return hygraphApi
+		.post('', {
+			query: `{
+			projectMetadatas { homePageVideoUrl }
+		}`
+		})
+		.then((data) => data.data)
+		.catch((err) => console.log(err));
+};

@@ -1,15 +1,20 @@
 <script>
+	import logo from '$lib/assets/logo-img.png';
+	import typeLogo from '$lib/assets/schriftlogo.svg';
+	import { DotsSixVertical } from 'phosphor-svelte';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+
 	const navbarItems = [
 		{ name: 'Events', href: '/events' },
 		{ name: 'Artists', href: '/artists' },
 		{ name: 'About', href: '/about' }
 	];
 
-	import logo from '$lib/assets/logo-img.png';
-	import typeLogo from '$lib/assets/schriftlogo.svg';
-	import { DotsSixVertical } from 'phosphor-svelte';
-
 	let isOpen = false;
+
+	let path;
+	$: path = $page.url.pathname;
 </script>
 
 <header
@@ -28,7 +33,7 @@
 	<nav class="hidden sm:flex">
 		<ul class="menu menu-horizontal menu-lg uppercase px-1">
 			{#each navbarItems as item}
-				<li><a href={item.href}>{item.name}</a></li>
+				<li><a href={item.href} class:active={path.includes(item.href)}>{item.name}</a></li>
 			{/each}
 		</ul>
 	</nav>
@@ -46,16 +51,23 @@
 				<a
 					on:click={() => (isOpen = false)}
 					href={item.href}
-					style={`animation-delay: ${i * 100}ms`}>{item.name}</a
+					style={`animation-delay: ${i * 100}ms`}
+					class:mobile-active={path.includes(item.href)}
 				>
+					{item.name}
+				</a>
 			{/each}
 		</div>
 	</div>
 </header>
 
-<style>
+<style lang="scss">
 	.menu-open a {
 		animation: fadeIn 200ms ease-out backwards;
+	}
+
+	.mobile-active {
+		border-bottom: 6px solid $primary;
 	}
 
 	@keyframes fadeIn {

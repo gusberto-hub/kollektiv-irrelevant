@@ -1,26 +1,13 @@
 <script>
 	import formatDateRange from '../../helpers/formatDateRange';
 	import EventCard from '../_components/EventCard.svelte';
-	import YoutubePlayer from '../_components/YoutubeFullscreen.svelte';
 	import YoutubeNormal from '../_components/YoutubeNormal.svelte';
 
 	export let data;
 	const { upcomingEvents, pastEvents } = data;
 </script>
 
-<!-- {#if $query.isPending}
-	<div class="loading loading-spinner loading-lg" />
-	{/if} -->
-
-<!-- {#if $query.error}
-		An error has occurred:
-		{$query.error.message}
-		{/if} -->
-
-<!-- {#if $query.isSuccess} -->
-<!-- {/if} -->
-
-<div class="md:grid grid-cols-12">
+<div class="md:grid grid-cols-12 pt-40">
 	<h1 class="font-extrabold uppercase text-3xl md:text-4xl col-span-full">next</h1>
 	<div class="flex flex-col gap-8 col-span-9 col-start-4">
 		{#if upcomingEvents.length > 0}

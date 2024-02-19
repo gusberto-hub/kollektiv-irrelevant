@@ -1,5 +1,6 @@
 <script>
 	import '../app.css';
+	import '../lib/scss/global.scss';
 	import Navbar from './_components/Navbar.svelte';
 	import InstagramLogo from 'phosphor-svelte/lib/InstagramLogo';
 	import TiktokLogo from 'phosphor-svelte/lib/TiktokLogo';
@@ -11,10 +12,10 @@
 </svelte:head>
 
 <div
-	class="max-w-maxTotalWidth mx-auto border-white 2xl:border-x-8 transition-[border] bg-base-100"
+	class="main-container max-w-maxTotalWidth mx-auto border-white 2xl:border-x-8 transition-[border] bg-base-100"
 >
 	<Navbar />
-	<main class="px-8">
+	<main class="px-8 pb-20">
 		<slot />
 	</main>
 	<footer
@@ -36,3 +37,6 @@
 		</nav>
 	</footer>
 </div>
+
+<style>
+</style>

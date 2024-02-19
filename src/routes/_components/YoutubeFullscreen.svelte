@@ -38,36 +38,26 @@
 </svelte:head>
 
 <div class="video-container">
+	<img
+		src="https://www.promises.com/wp-content/uploads/2017/03/Rave-Parties-Safety-and-Precautions-1200x675.jpeg"
+		class="hero-image-fallback"
+		alt="people dancing"
+	/>
 	<iframe
 		src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=0&autoplay=1&mute=1&playsinline=1&playlist=${videoId}&loop=1`}
 		title="YouTube video player"
 		class=""
 	/>
-	<!-- <img
-		src="https://www.promises.com/wp-content/uploads/2017/03/Rave-Parties-Safety-and-Precautions-1200x675.jpeg"
-		class="hero-image-fallback"
-		alt="people dancing"
-	/> -->
+	<div class="absolute inset-0 bg-base-100 opacity-40" />
 </div>
 
 <style>
 	.video-container {
-		width: 100%;
-		height: 100%;
-		position: relative;
-		overflow: hidden;
-		pointer-events: none;
+		@apply w-full h-full relative overflow-hidden pointer-events-none;
 	}
 
 	iframe {
-		display: block;
-		width: 316%;
-		height: 100%;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-
-		transform: translateY(-50%) translateX(-50%);
+		@apply block h-full w-[177.77vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 	}
 
 	.hero-image-fallback {
