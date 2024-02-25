@@ -21,7 +21,7 @@
 		<div class="sm:col-span-5 flex flex-col gap-4">
 			{#if artist.socialLinks.length > 0}
 				<div class="flex flex-col gap-4 items-start">
-					<button class="btn w-fit btn-secondary btn-sm flex">socials</button>
+					<button class="btn w-fit btn--secondary btn--sm flex">socials</button>
 					{#each artist.socialLinks as link}
 						<a class="link flex gap-2 items-center md:text-xl" href={link.url} target="_blank">
 							<ArrowSquareOut />{link.name}
@@ -30,7 +30,7 @@
 				</div>
 			{/if}
 			{#if artist.artistBio}
-				<button on:click={() => (showBio = !showBio)} class="btn w-fit btn-primary btn-sm flex"
+				<button on:click={() => (showBio = !showBio)} class="btn w-fit btn--primary btn--sm flex"
 					>about <CaretDown /></button
 				>
 				<div

@@ -2,27 +2,23 @@
 	export let artists;
 </script>
 
-<div class="pt-24 md:grid grid-cols-12 gap-4">
-	<div class="col-span-3 row-start-1">
-		<h2 class="text-3xl font-bold text-shadow uppercase leading-tight md:sticky top-28 h-fit">
-			our artists
-		</h2>
-		<p>
+<div class="category-container">
+	<div class="title-container">
+		<h2 class="title">our artists</h2>
+		<p class="category-description">
 			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident eligendi beatae quo et
 			fugiat nulla doloribus? Inventore modi hic quia?
 		</p>
-		<a href="/artists" class="btn btn-outline btn-lg btn-primary cursor-pointer">all artists</a>
+		<a href="/artists" class="btn btn--md btn--primary">all artists</a>
 	</div>
-	<div class="col-span-9 row-start-1 gap-8 lg:gap-12 grid sm:grid-cols-2 lg:grid-cols-9">
+	<div class="items-container items-container--artists">
 		{#each artists as artist}
-			<div class="lg:col-span-3 border-8 group">
-				<h3
-					class="text-xl text-primary border-b-8 truncate p-4 group-hover:tracking-wider transition-all"
-				>
+			<div class="artist-card">
+				<h3 class="artist-title">
 					{artist.name}
 				</h3>
-				<div class="aspect-square">
-					<img class="object-cover h-full w-full" src={artist.artistImage?.url} alt={artist.name} />
+				<div class="artist-image">
+					<img class="" src={artist.artistImage?.url} alt={artist.name} />
 				</div>
 			</div>
 		{/each}

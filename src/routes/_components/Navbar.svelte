@@ -2,7 +2,6 @@
 	import logo from '$lib/assets/logo-img.png';
 	import typeLogo from '$lib/assets/schriftlogo.svg';
 	import { DotsSixVertical } from 'phosphor-svelte';
-	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 
 	const navbarItems = [
@@ -13,67 +12,50 @@
 
 	let isOpen = false;
 
+	const closeMenu = () => {
+		setTimeout(() => (isOpen = false), 200);
+	};
+
 	let path;
 	$: path = $page.url.pathname;
 </script>
 
-<header
-	class="navbar justify-between z-10 fixed top-0 h-20 max-w-maxTotalWidth left-1/2 -translate-x-1/2"
->
-	<nav class="px-4 py-2 z-10">
-		<a class="" href="/">
-			<img
-				src={logo}
-				alt="kollektiv irrelevant logo"
-				class="h-12 w-12 mr-2 inline animate-spin-slow"
-			/>
-			<img src={typeLogo} alt="kollektiv irrelevant logo" class="h-12 inline" />
-		</a>
-	</nav>
-	<nav class="hidden sm:flex">
-		<ul class="menu menu-horizontal menu-lg uppercase px-1">
-			{#each navbarItems as item}
-				<li><a href={item.href} class:active={path.includes(item.href)}>{item.name}</a></li>
-			{/each}
-		</ul>
-	</nav>
-
-	<button on:click={() => (isOpen = !isOpen)} class="absolute top-4 right-4 z-20 sm:hidden"
-		><DotsSixVertical weight="bold" class="w-8 h-8" /></button
-	>
-	<div
-		class={`sm:hidden bg-base-100/80 backdrop-blur-lg absolute transition-all w-screen h-screen top-0 left-0 text-base-content flex flex-col ${
-			isOpen ? 'opacity-100 menu-open' : 'opacity-0 pointer-events-none duration-300'
-		}`}
-	>
-		<div class="text-3xl p-4 flex flex-col w-full font-heading gap-4 font-bold pt-28 ml-[8.4rem]">
+<header class="navbar">
+	<a class="logo-wrapper" href="/">
+		<img src={logo} alt="kollektiv irrelevant logo" class="logo-image" />
+		<img src={typeLogo} alt="kollektiv irrelevant logo" class="logo-typo" />
+	</a>
+	<nav class="desktop-nav">
+		<div class="nav-items__wrapper">
 			{#each navbarItems as item, i}
 				<a
 					on:click={() => (isOpen = false)}
 					href={item.href}
 					style={`animation-delay: ${i * 100}ms`}
 					class:mobile-active={path.includes(item.href)}
+					class="nav-items__wrapper__item"
 				>
 					{item.name}
 				</a>
 			{/each}
 		</div>
-	</div>
+	</nav>
+	<nav class={`mobile-nav ${isOpen && 'menu-open'}`}>
+		<div class="mobile-nav__bg" />
+		<ul class="">
+			{#each navbarItems as item}
+				<li>
+					<a on:click={closeMenu} href={item.href} class:active={path.includes(item.href)}
+						>{item.name}</a
+					>
+				</li>
+			{/each}
+		</ul>
+	</nav>
+	<button
+		on:click={() => (isOpen = !isOpen)}
+		class="absolute top-4 right-4 z-20 sm:hidden mobile-nav-toggle"
+	>
+		<DotsSixVertical weight="bold" class="w-8 h-8" />
+	</button>
 </header>
-
-<style lang="scss">
-	.menu-open a {
-		animation: fadeIn 200ms ease-out backwards;
-	}
-
-	.mobile-active {
-		border-bottom: 6px solid $primary;
-	}
-
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-			transform: translateX(-2em);
-		}
-	}
-</style>

@@ -8,23 +8,20 @@
 	const { events, artists } = data;
 </script>
 
-<div class="">
-	<div class="-mx-8 md:aspect-video h-screen md:h-min overflow-hidden relative">
+<div class="hero-container">
+	<div class="hero-container__wrapper">
 		<YoutubeFullscreen videoId="xSNn4EmtumE" />
-		<div
-			class="font-heading leading-tight absolute inset-0 flex flex-col items-center justify-center"
-		>
-			<h1
-				class="mb-5 text-3xl lg:text-4xl font-bold hover:font-[900] hover:scale-125 transition-all"
-			>
-				<span class="uppercase block font-condensed">Artist Collective</span> based in Solothurn
+		<div class="hero-container__wrapper__content">
+			<h1 class="">
+				<span class="">Artist Collective</span> based in Solothurn
 			</h1>
-			<p class="mb-5 text-2xl">Platform & Network</p>
-			<a class="btn btn-lg btn-primary" href="https://youtube.com">watch video</a>
+			<p class="text-2xl">Platform & Network</p>
+			<!-- <a class="" href="https://youtube.com">watch video</a> -->
 		</div>
 	</div>
 </div>
 
-<NextEvents {events} />
-
-<ArtistSelection {artists} />
+<div class="index-page-section-container">
+	<NextEvents {events} />
+	<ArtistSelection {artists} />
+</div>

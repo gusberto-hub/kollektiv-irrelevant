@@ -1,0 +1,295 @@
+@use 'index' as *;
+
+.event-card {
+	border: 8px solid $white;
+	display: grid;
+	transition: box-shadow 100ms ease;
+
+	@include sm-breakpoint {
+		grid-template-columns: repeat(9, 1fr);
+	}
+
+	&:hover {
+		// box-shadow: -8px 8px 0px 8px $primary;
+		box-shadow: 0px 0px 32px $accent;
+
+		img {
+			transform: rotate(2deg) scale(1.05);
+		}
+	}
+
+	&__content {
+		@include sm-breakpoint {
+			border-right: 8px solid $white;
+		}
+		grid-column: 1 / 6;
+
+		& .date-container {
+			font-size: $text-lg;
+			border-bottom: 8px solid $white;
+			color: $primary;
+			padding: 1rem;
+
+			@include sm-breakpoint {
+				font-size: $text-xl;
+			}
+		}
+
+		& .details-container {
+			padding: 1rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+
+			.title {
+				font-size: $text-lg;
+
+				@include sm-breakpoint {
+					font-size: $text-2xl;
+				}
+			}
+
+			.location-link {
+				text-decoration: underline;
+			}
+
+			.location {
+				font-size: $text-md;
+				font-weight: 100;
+				color: $primary;
+
+				display: flex;
+
+				@include sm-breakpoint {
+					font-size: $text-lg;
+				}
+			}
+		}
+	}
+	.image-container {
+		display: none;
+
+		@include sm-breakpoint {
+			display: block;
+			padding: 2.5rem;
+			grid-column: 6 / -1;
+		}
+
+		img {
+			width: 100%;
+			transition: transform 200ms ease;
+		}
+	}
+}
+
+.event-card--small {
+	border: 8px solid $white;
+	display: grid;
+
+	@include sm-breakpoint {
+		grid-template-columns: repeat(9, 1fr);
+	}
+
+	.date-container {
+		grid-column: 1/4;
+		padding: $space-md;
+		display: flex;
+		flex-direction: column;
+		gap: $space-md;
+
+		.date {
+			font-size: $text-md;
+			color: $primary;
+
+			@include sm-breakpoint {
+				font-size: $text-lg;
+			}
+		}
+	}
+
+	.details-container {
+		grid-column: 4/-1;
+		padding: $space-md;
+
+		@include sm-breakpoint {
+			border-left: 8px solid $white;
+		}
+
+		.title {
+			font-size: $text-lg;
+		}
+
+		.location {
+			font-weight: 100;
+			color: $primary;
+			font-size: $text-md;
+			margin-top: $space-xs;
+
+			a {
+				text-decoration: underline;
+				border: 3px solid red;
+			}
+		}
+	}
+}
+
+.event-page-container {
+	display: grid;
+	align-items: flex-start;
+
+	@include md-breakpoint {
+		grid-template-columns: repeat(12, 1fr);
+	}
+}
+
+.event {
+	&-title-flyer {
+		@include md-breakpoint {
+			grid-column: 1/6;
+			top: var(--main-padding-top);
+			padding-right: $space-lg;
+			position: sticky;
+		}
+
+		.flyer {
+			max-width: 32rem;
+			max-height: calc(100svh - var(--main-padding-top) - $space-lg);
+			display: block;
+			margin-bottom: $space-3xl;
+			object-fit: contain;
+			object-position: left;
+		}
+	}
+
+	&-details {
+		padding-bottom: 5rem;
+		@include md-breakpoint {
+			grid-column: 6/-1;
+			border-left: 8px solid $white;
+			padding-left: $space-lg;
+		}
+
+		section {
+			margin-bottom: $space-2xl;
+		}
+
+		.section-title {
+			font-size: $text-2xl;
+			text-transform: uppercase;
+			font-size: $text-base;
+			color: $primary;
+			margin-bottom: $space-xs;
+
+			@include md-breakpoint {
+				font-size: $text-md;
+			}
+		}
+
+		.title {
+			font-size: $text-xl;
+
+			@include md-breakpoint {
+				font-size: $text-3xl;
+			}
+		}
+
+		&__date {
+			font-size: $text-lg;
+			// color: $primary;
+			margin-bottom: $space-xl;
+
+			@include md-breakpoint {
+				font-size: $text-2xl;
+			}
+		}
+
+		&__location,
+		&__about {
+			font-size: $text-md;
+			font-weight: 100;
+
+			@include md-breakpoint {
+				font-size: $text-lg;
+			}
+
+			a,
+			h3 {
+				font: inherit;
+			}
+
+			p {
+				margin-bottom: 1em;
+			}
+		}
+
+		&__artists {
+			margin-top: $space-2xl;
+
+			& .event-artist {
+				// border: 8px solid $white;
+				margin-bottom: $space-2xl;
+				// max-width: 28rem;
+				display: flex;
+				flex-direction: column;
+				gap: $space-2xs;
+
+				@include sm-breakpoint {
+					flex-direction: row;
+					gap: $space-lg;
+				}
+
+				&__details {
+					display: flex;
+					flex: 1;
+					justify-content: space-between;
+
+					.links {
+						color: $primary;
+						height: 100%;
+						display: flex;
+						gap: $space-sm;
+
+						a {
+							height: 100%;
+							font-size: $text-lg;
+						}
+					}
+				}
+
+				&__name {
+					// color: $primary;
+					font-weight: bold;
+					margin-bottom: $space-xs;
+					font-size: $text-md;
+
+					@include md-breakpoint {
+						font-size: $text-lg;
+					}
+				}
+
+				&__label {
+					font-weight: 100;
+					font-size: $text-base;
+					margin-bottom: $space-xs;
+
+					@include md-breakpoint {
+						font-size: $text-md;
+					}
+				}
+
+				&__image {
+					flex: 1;
+					img {
+						aspect-ratio: 1/1;
+						object-fit: cover;
+						max-width: 12rem;
+
+						@include md-breakpoint {
+							max-width: 18rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -48,23 +48,5 @@
 		title="YouTube video player"
 		class=""
 	/>
-	<div class="absolute inset-0 bg-base-100 opacity-40" />
+	<div class="bg-overlay" />
 </div>
-
-<style>
-	.video-container {
-		@apply w-full h-full relative overflow-hidden pointer-events-none;
-	}
-
-	iframe {
-		@apply block h-full w-[177.77vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-	}
-
-	.hero-image-fallback {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-</style>

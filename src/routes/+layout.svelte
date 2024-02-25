@@ -1,5 +1,5 @@
 <script>
-	import '../app.css';
+	// import '../app.css';
 	import '../lib/scss/global.scss';
 	import Navbar from './_components/Navbar.svelte';
 	import InstagramLogo from 'phosphor-svelte/lib/InstagramLogo';
@@ -11,28 +11,29 @@
 	<title>Kollektiv Irrelevant</title>
 </svelte:head>
 
-<div
-	class="main-container max-w-maxTotalWidth mx-auto border-white 2xl:border-x-8 transition-[border] bg-base-100"
->
+<div class="main-container">
 	<Navbar />
-	<main class="px-8 pb-20">
+	<main class="">
 		<slot />
 	</main>
-	<footer
-		class="max-w-maxTotalWidth mx-auto footer fixed bottom-0 left-0 right-0 items-center py-4 px-10 text-neutral-content"
-	>
+	<footer>
 		<!-- <aside class="items-center grid-flow-col">
 			<p>Copyright © 2023 - All right reserved</p>
 		</aside> -->
-		<nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-			<a href="https://instagram.com/kollektiv_irrelevant" class="btn btn-sm btn-primary"
-				><InstagramLogo />Insta</a
+		<nav class="">
+			<a
+				href="https://instagram.com/kollektiv_irrelevant"
+				class="btn--sm btn--outline btn--outline--blur"
 			>
-			<a href="https://instagram.com/kollektiv_irrelevant" class="btn btn-sm btn-primary"
-				><TiktokLogo />Tiktok</a
+				<InstagramLogo />Insta
+			</a>
+			<a
+				href="https://instagram.com/kollektiv_irrelevant"
+				class="btn--sm btn--outline btn--outline--blur"><TiktokLogo />Tiktok</a
 			>
-			<a href="https://instagram.com/kollektiv_irrelevant" class="btn btn-sm btn-primary"
-				><YoutubeLogo />Youtube</a
+			<a
+				href="https://instagram.com/kollektiv_irrelevant"
+				class="btn--sm btn--outline btn--outline--blur"><YoutubeLogo />Youtube</a
 			>
 		</nav>
 	</footer>

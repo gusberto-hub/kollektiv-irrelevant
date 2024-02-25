@@ -1,0 +1,166 @@
+@use 'index' as *;
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	max-width: $maxContentWidth;
+
+	display: flex;
+	justify-content: space-between;
+
+	z-index: 10;
+	padding: 1rem 2rem;
+
+	.logo-wrapper {
+		display: flex;
+		align-items: center;
+		.logo-image {
+			height: 3rem;
+			width: 3rem;
+			margin-right: 0.5rem;
+			display: inline;
+			animation: slow-spin 16s infinite linear;
+		}
+
+		.logo-typo {
+			height: 3rem;
+			display: inline;
+			color: red;
+			fill: red;
+		}
+	}
+
+	.desktop-nav {
+		display: none;
+
+		@include sm-breakpoint {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 6rem;
+		}
+
+		.nav-items__wrapper {
+			display: flex;
+			gap: 2rem;
+			height: 100%;
+
+			&__item {
+				font-size: $text-md;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: all 100ms ease-in;
+				text-transform: uppercase;
+
+				&:hover {
+					border-bottom: 4px solid $white;
+				}
+
+				&:active {
+					// background-color: $primary;
+					box-shadow: 4px 4px 0px $primary;
+				}
+			}
+		}
+	}
+
+	@keyframes slow-spin {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	.mobile-nav {
+		// display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 6rem;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: -1;
+
+		opacity: 0;
+
+		width: 100vw;
+		height: 100svh;
+
+		padding-left: 2rem;
+		padding-top: 8rem;
+		pointer-events: none;
+
+		transition: all 200ms ease-in-out;
+
+		& li a {
+			font-size: $text-2xl;
+			margin-bottom: 2rem;
+			font-weight: bold;
+			text-transform: uppercase;
+			width: 100%;
+			border-bottom: 8px solid transparent;
+			display: block;
+
+			&.active {
+				border-color: $primary;
+			}
+		}
+
+		@include sm-breakpoint {
+			display: none;
+		}
+
+		&__bg {
+			background-color: $base-100;
+			opacity: 1;
+			backdrop-filter: blur(10px);
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100svh;
+			width: 100vw;
+			z-index: -1;
+		}
+
+		&.menu-open {
+			opacity: 1;
+			pointer-events: all;
+
+			a {
+				animation: fadeIn 200ms ease-out backwards;
+			}
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateX(-2em);
+			}
+		}
+	}
+	.mobile-nav-toggle {
+		position: fixed;
+		top: 2rem;
+		right: 2rem;
+		background: none;
+		border: none;
+
+		color: $white;
+
+		@include sm-breakpoint {
+			display: none;
+		}
+
+		svg {
+			width: 2rem;
+			height: 2rem;
+		}
+	}
+}

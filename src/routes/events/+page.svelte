@@ -2,14 +2,17 @@
 	import formatDateRange from '../../helpers/formatDateRange';
 	import EventCard from '../_components/EventCard.svelte';
 	import YoutubeNormal from '../_components/YoutubeNormal.svelte';
+	import MapPin from 'phosphor-svelte/lib/MapPin';
 
 	export let data;
 	const { upcomingEvents, pastEvents } = data;
 </script>
 
-<div class="md:grid grid-cols-12 pt-40">
-	<h1 class="font-extrabold uppercase text-3xl md:text-4xl col-span-full">next</h1>
-	<div class="flex flex-col gap-8 col-span-9 col-start-4">
+<div class="category-container">
+	<div class="title-container">
+		<h1 class="title">upcoming</h1>
+	</div>
+	<div class="items-container">
 		{#if upcomingEvents.length > 0}
 			{#each upcomingEvents as event}
 				<EventCard eventData={event} />
@@ -26,28 +29,29 @@
 	</div>
 </div>
 
-<div class="md:grid grid-cols-12 mt-12">
-	<h1 class="font-extrabold uppercase text-3xl md:text-4xl col-span-full">past</h1>
-	<div class="col-span-9 col-start-4 flex flex-col gap-8">
+<div class="category-container">
+	<div class="title-container">
+		<h1 class="title">past</h1>
+	</div>
+	<div class="items-container">
 		{#each pastEvents as event}
-			<div class="border-8 border-red-white md:grid grid-cols-9">
-				<div class="p-4 pb-0 md:pb-4 md:border-r-8 col-span-4 flex justify-between gap-2">
-					<h4 class="font-bold text-xl md:text-2xl leading-tight text-primary">
+			<a class="event-card event-card--small" href={`/events/${event.slug}`}>
+				<div class="date-container">
+					<h4 class="date">
 						{formatDateRange(event.startDate, event.endDate)}
 					</h4>
-					<a href={`/events/${event.slug}`}>
-						<button class="btn btn-outline">more</button>
-					</a>
+					<!-- <a href={`/events/${event.slug}`} class="btn--sm btn--outline"> more </a> -->
 				</div>
-				<div class="col-span-5 p-4">
-					<h3 class="text-xl lg:text-2xl font-bold leading-tight mb-2 md:mb-4">{event.title}</h3>
+				<div class="details-container">
+					<h2 class="title">{event.title}</h2>
 					{#if event.location}
-						<div>
-							<h3 class="font-normal text-base lg:text-xl">{event.location}</h3>
-						</div>
+						<p class="location">
+							<MapPin />
+							{event.location}
+						</p>
 					{/if}
 				</div>
-			</div>
+			</a>
 		{/each}
 	</div>
 </div>

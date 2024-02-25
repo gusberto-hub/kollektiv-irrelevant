@@ -1,5 +1,5 @@
 <script>
-	import { ArrowSquareOut } from 'phosphor-svelte';
+	import { SoundcloudLogo, InstagramLogo } from 'phosphor-svelte';
 	import formatDateRange from '../../../helpers/formatDateRange.js';
 	import SvelteMarkdown from 'svelte-markdown';
 	export let data;
@@ -8,71 +8,86 @@
 
 	const dateToday = new Date();
 	const startDate = new Date(event.startDate);
+
+	console.log(event.artists);
 </script>
 
-<div class="flex flex-col gap-8">
-	<div class="col-start-4 col-end-13 lg:grid grid-cols-9">
-		<div class="lg:border-r-8 col-span-4">
-			<div class="lg:pr-12 sticky top-40">
-				<img class="w-full" alt={event.title} src={event.flyerImage?.url} />
-			</div>
-		</div>
-		<div class="lg:col-span-5 lg:pl-8 lg:border-t-8 lg:border-none hyphens-auto mt-4 lg:mt-0">
-			<h2 class="font-bold text-3xl leading-tight text-primary">
+<div class="event-page-container">
+	<div class="event-title-flyer">
+		<img class="flyer" alt={event.title} src={event.flyerImage?.url} />
+	</div>
+	<div class="event-details">
+		<section>
+			<h1 class="title">{event.title}</h1>
+			{#if event.ticketsLink && startDate > dateToday}
+				<section class="event-details__ticket">
+					<a class="btn--primary btn--md" href={event.ticketsLink} target="_blank">Tickets</a>
+				</section>
+			{/if}
+		</section>
+		<section>
+			<h2 class="section-title">date</h2>
+			<h2 class="event-details__date">
 				{formatDateRange(event.startDate, event.endDate)}
 			</h2>
-			<h1 class="text-3xl lg:text-4xl font-bold leading-[1] uppercase mb-4">{event.title}</h1>
+		</section>
 
-			<div>
-				{#if event.locationUrl}
-					<a href={event.locationUrl} class="link" target="_blank">
-						<h3 class="font-bold lg:text-2xl">{event.location}</h3>
-					</a>
-				{:else}
-					<h3 class="font-bold lg:text-2xl">{event.location}</h3>
-				{/if}
-			</div>
-			{#if event.ticketsLink && startDate > dateToday}
-				<div class="mt-8">
-					<a class="btn btn-secondary btn-lg" href={event.ticketsLink} target="_blank">Tickets</a>
-				</div>
+		<section class="event-details__location">
+			<h2 class="section-title">location</h2>
+			{#if event.locationUrl}
+				<a href={event.locationUrl} target="_blank">
+					<h3>{event.location}</h3>
+				</a>
+			{:else}
+				<h3>{event.location}</h3>
 			{/if}
-			<div class="[&>p]:mb-4">
+		</section>
+
+		{#if event.aboutEvent}
+			<section class="event-details__about">
+				<h2 class="section-title">about</h2>
 				<SvelteMarkdown source={event.aboutEvent} />
-			</div>
-			<!-- <div class="[&>p]:mb-4 text-2xl">
+			</section>
+		{/if}
+
+		<!-- <div class="[&>p]:mb-4 text-2xl">
 				<span class="font-bold">Line Up</span>
 				<SvelteMarkdown source={event.lineUp} />
 			</div> -->
-			<div class="flex flex-col gap-16">
-				{#each event.artists as artist}
-					<div class="flex gap-4">
-						<div>
-							<p class="text-xl lg:text-3xl whitespace-nowrap flex-1 text-primary font-bold">
+
+		<section class="event-details__artists">
+			<h2 class="section-title">lineup</h2>
+			{#each event.artists as artist}
+				<div class="event-artist">
+					<div class="event-artist__details">
+						<div class="event-artist__name-link">
+							<h3 class="event-artist__name">
 								{artist.name}
-							</p>
-							{#if artist.socialLinks.length > 0}
-								<div class="flex flex-col gap-4 items-start">
-									{#each artist.socialLinks as link}
-										<a
-											class="btn btn-outline flex gap-2 items-center text-base"
-											href={link.url}
-											target="_blank"
-										>
-											<ArrowSquareOut />{link.name}
-										</a>
-									{/each}
-								</div>
-							{/if}
+							</h3>
+							<p class="event-artist__label">Kollektiv Irrelevant</p>
 						</div>
-						{#if artist.artistImage}
-							<div class="aspect-square overflow-hidden">
-								<img src={artist.artistImage?.url} alt={artist.name} />
+						{#if artist.socialLinks.length > 0}
+							<div class="links">
+								{#each artist.socialLinks as link}
+									<a href={link.url} target="_blank">
+										{#if link.name.toLowerCase() === 'soundcloud'}
+											<SoundcloudLogo />
+										{/if}
+										{#if link.name.toLowerCase() === 'instagram'}
+											<InstagramLogo />
+										{/if}
+									</a>
+								{/each}
 							</div>
 						{/if}
 					</div>
-				{/each}
-			</div>
-		</div>
+					{#if artist.artistImage}
+						<div class="event-artist__image">
+							<img src={artist.artistImage?.url} alt={artist.name} />
+						</div>
+					{/if}
+				</div>
+			{/each}
+		</section>
 	</div>
 </div>

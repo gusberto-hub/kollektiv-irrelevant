@@ -1,6 +1,125 @@
+@use 'sass:color';
+
+// COLORS
+
 $primary: #fb0089;
 $secondary: #0000ff;
 $accent: #ffdf00;
 $neutral: #1a1c32;
 $base-100: #0e0e1a;
 $base-200: #0c0c09;
+$white: hsl(52, 10%, 90%);
+
+$maxContentWidth: 98rem;
+
+// TEXT SIZES
+
+$text-sm: 0.8rem;
+$text-base: 1rem;
+$text-md: 1.4rem;
+$text-lg: 2.4rem;
+$text-xl: 3rem;
+$text-2xl: 3.6rem;
+$text-3xl: 4.8rem;
+
+// SPACINGS
+
+$space-3xs: 0.125rem;
+$space-2xs: 0.25rem;
+$space-xs: 0.5rem;
+$space-sm: 0.75rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+$space-2xl: 2.5rem;
+$space-3xl: 3rem;
+
+// BUTTONS
+
+$button-sizes: (
+	'sm': 0.8rem,
+	'md': 1.2rem,
+	'lg': 2rem,
+	'xl': 2.6rem,
+	'2xl': 3.4rem
+);
+
+$button-colors: (
+	'primary': $primary,
+	'secondary': $secondary
+);
+
+@mixin btn {
+	border-radius: 6px;
+	width: fit-content;
+	letter-spacing: 0.05em;
+
+	display: inline-flex;
+	align-items: center;
+	gap: $space-xs;
+
+	svg {
+		$icon-size: 1.5em;
+		width: $icon-size;
+		height: $icon-size;
+	}
+}
+
+@each $size_name, $size in $button-sizes {
+	.btn--#{$size_name} {
+		@include btn;
+		font-size: $size;
+		text-transform: uppercase;
+		padding: 0.8em 1.3em;
+	}
+}
+
+@each $color_name, $color in $button-colors {
+	.btn--#{$color_name} {
+		@include btn;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			background-color: $color;
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+		}
+
+		&::after {
+			content: '';
+			background-color: darken($color, 10);
+			position: absolute;
+			inset: -25%;
+			z-index: -1;
+			transform: translateY(-140%) rotate(12deg);
+			transition: all 100ms ease;
+		}
+
+		&:hover {
+			&::after {
+				transform: translateY(0%) rotate(12deg);
+			}
+		}
+	}
+}
+
+.btn--outline {
+	@include btn;
+	background-color: none;
+	color: $primary;
+	border: 2px solid $primary;
+	transition: all 50ms ease-in;
+
+	&:hover {
+		background-color: $white;
+		box-shadow: 0 0 16px $white;
+	}
+
+	&--blur {
+		background-color: rgba($base-100, 0.5);
+		backdrop-filter: blur(8px);
+	}
+}

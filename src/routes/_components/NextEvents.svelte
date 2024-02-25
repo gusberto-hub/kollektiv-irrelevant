@@ -3,21 +3,25 @@
 	export let events;
 </script>
 
-<div class="pt-24 md:grid grid-cols-12 gap-4">
+<section class="next-events-container category-container">
 	{#if events.length > 0}
-		<h2 class="md:col-span-3 row-start-1 text-3xl font-bold uppercase leading-tight">
-			next events
-		</h2>
-		<div class="md:col-span-9 lg:row-start-1 flex flex-col gap-20">
+		<div class="title-container">
+			<h2 class="title">next events</h2>
+			<p class="category-description">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui sit nam dolorem laboriosam
+				asperiores earum sapiente dolores officiis modi impedit.
+			</p>
+		</div>
+		<div class="items-container items-container--events">
 			{#each events as event}
 				<EventCard eventData={event} />
 			{/each}
 		</div>
 	{:else}
-		<div class="md:col-start-4 md:col-span-full">
-			<h2 class="text-4xl font-bold uppercase leading-tight">No events yet</h2>
+		<div class="no-events-container">
+			<h2 class="title">No events yet</h2>
 			<p class="text-xl">follow us on instagram to be the first to hear about the newest events</p>
-			<button class="btn btn-outline"><a href="https://instagram">Follow</a></button>
+			<button class="btn btn--outline"><a href="https://instagram">Follow</a></button>
 		</div>
 	{/if}
-</div>
+</section>

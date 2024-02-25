@@ -1,0 +1,21 @@
+@use 'index' as *;
+
+footer {
+	width: 100%;
+	max-width: $maxContentWidth;
+
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+
+	@include sm-breakpoint {
+		padding: 2rem 2rem;
+	}
+
+	nav {
+		display: flex;
+		justify-content: flex-end;
+		gap: 1rem;
+	}
+}

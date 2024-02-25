@@ -25,14 +25,15 @@ const getEvent = (slug) =>
 					  width
 					}
 					artists {
+						name
 						artistImage {
 						  url
 						}
-						name
 						socialLinks {
 						  name
 						  url
 						}
+						category
 					  }
 				  }
                 }`

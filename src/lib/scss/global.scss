@@ -1,5 +1,4 @@
-// global settings here
-
-.main-container {
-	// background-color: blue;
-}
+@use 'main';
+@use 'navigation';
+@use 'footer';
+@use 'events';
