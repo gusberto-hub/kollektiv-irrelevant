@@ -33,6 +33,12 @@ img {
 	width: 100%;
 }
 
+html.nav-open {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
 .main-container {
 	max-width: $maxContentWidth;
 	margin: 0 auto;
@@ -103,12 +109,11 @@ main {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			// align-items: center;
 			max-width: 54em;
 			padding: 2rem;
 
 			h1 {
-				font-size: $text-2xl;
+				font-size: $text-xl;
 
 				@include sm-breakpoint {
 					font-size: $text-3xl;
@@ -141,6 +146,7 @@ main {
 
 	> .title-container {
 		grid-column: 1 / 4;
+		padding-bottom: $space-lg;
 
 		.title {
 			font-size: $text-xl;

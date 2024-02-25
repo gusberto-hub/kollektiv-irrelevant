@@ -3,6 +3,7 @@
 	import typeLogo from '$lib/assets/schriftlogo.svg';
 	import { DotsSixVertical } from 'phosphor-svelte';
 	import { page } from '$app/stores';
+	import Footer from './Footer.svelte';
 
 	const navbarItems = [
 		{ name: 'Events', href: '/events' },
@@ -14,6 +15,13 @@
 
 	const closeMenu = () => {
 		setTimeout(() => (isOpen = false), 200);
+		window.document.documentElement.classList.remove('nav-open');
+	};
+
+	const toggleMenu = () => {
+		isOpen = !isOpen;
+		console.log(window);
+		window.document.documentElement.classList.toggle('nav-open');
 	};
 
 	let path;
@@ -51,11 +59,11 @@
 				</li>
 			{/each}
 		</ul>
+		<div class="mobile-nav-footer">
+			<Footer />
+		</div>
 	</nav>
-	<button
-		on:click={() => (isOpen = !isOpen)}
-		class="absolute top-4 right-4 z-20 sm:hidden mobile-nav-toggle"
-	>
+	<button on:click={toggleMenu} class="absolute top-4 right-4 z-20 sm:hidden mobile-nav-toggle">
 		<DotsSixVertical weight="bold" class="w-8 h-8" />
 	</button>
 </header>

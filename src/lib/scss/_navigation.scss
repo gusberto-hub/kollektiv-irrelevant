@@ -10,6 +10,7 @@
 
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 
 	z-index: 10;
 	padding: 1rem 2rem;
@@ -17,19 +18,19 @@
 	.logo-wrapper {
 		display: flex;
 		align-items: center;
+		justify-content: flex-start;
+		height: 3rem;
+		width: fit-content;
+
 		.logo-image {
-			height: 3rem;
+			height: 100%;
 			width: 3rem;
-			margin-right: 0.5rem;
-			display: inline;
+			margin-right: 4%;
 			animation: slow-spin 16s infinite linear;
 		}
 
 		.logo-typo {
-			height: 3rem;
-			display: inline;
-			color: red;
-			fill: red;
+			height: 100%;
 		}
 	}
 
@@ -146,12 +147,12 @@
 		}
 	}
 	.mobile-nav-toggle {
-		position: fixed;
+		// position: fixed;
 		top: 2rem;
 		right: 2rem;
 		background: none;
 		border: none;
-
+		padding: $space-xs;
 		color: $white;
 
 		@include sm-breakpoint {

@@ -8,8 +8,6 @@
 
 	const dateToday = new Date();
 	const startDate = new Date(event.startDate);
-
-	console.log(event.artists);
 </script>
 
 <div class="event-page-container">
