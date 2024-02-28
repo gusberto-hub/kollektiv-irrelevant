@@ -11,7 +11,6 @@ export const getUpcomingEvents = () => {
 				id
 				title
 				aboutEvent
-				lineUp
 				location
 				locationUrl
 				slug
@@ -41,7 +40,6 @@ export const getPastEvents = () => {
 				id
 				title
 				aboutEvent
-				lineUp
 				location
 				locationUrl
 				slug

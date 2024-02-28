@@ -1,6 +1,7 @@
 <script>
 	import { SoundcloudLogo, InstagramLogo } from 'phosphor-svelte';
 	import formatDateRange from '../../../helpers/formatDateRange.js';
+	import MarkDownLinkComponet from '../../_components/MarkDownLinkComponent.svelte';
 	import SvelteMarkdown from 'svelte-markdown';
 	export let data;
 
@@ -44,17 +45,12 @@
 		{#if event.aboutEvent}
 			<section class="event-details__about">
 				<h2 class="section-title">about</h2>
-				<SvelteMarkdown source={event.aboutEvent} />
+				<SvelteMarkdown source={event.aboutEvent} renderers={{ link: MarkDownLinkComponet }} />
 			</section>
 		{/if}
 
-		<!-- <div class="[&>p]:mb-4 text-2xl">
-				<span class="font-bold">Line Up</span>
-				<SvelteMarkdown source={event.lineUp} />
-			</div> -->
-
 		<section class="event-details__artists">
-			<h2 class="section-title">lineup</h2>
+			<h2 class="section-title">featured artists</h2>
 			{#each event.artists as artist}
 				<div class="event-artist">
 					<div class="event-artist__details">

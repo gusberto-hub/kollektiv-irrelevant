@@ -12,7 +12,6 @@ const getEvent = (slug) =>
 				event (where: {slug: "${slug}"}) {
 					title
 					aboutEvent
-					lineUp
 					location
 					locationUrl
 					slug
