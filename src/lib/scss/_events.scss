@@ -1,5 +1,9 @@
 @use 'index' as *;
 
+.test-class {
+	color: $primary;
+}
+
 .event-card {
 	border: 8px solid $white;
 	display: grid;
