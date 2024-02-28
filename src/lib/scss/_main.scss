@@ -37,6 +37,12 @@ html.nav-open {
 	height: 100vh;
 	width: 100vw;
 	overflow: hidden;
+
+	@include sm-breakpoint {
+		height: initial;
+		width: initial;
+		overflow: auto;
+	}
 }
 
 .main-container {
