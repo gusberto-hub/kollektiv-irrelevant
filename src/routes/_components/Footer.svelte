@@ -2,26 +2,27 @@
 	import InstagramLogo from 'phosphor-svelte/lib/InstagramLogo';
 	import TiktokLogo from 'phosphor-svelte/lib/TiktokLogo';
 	import YoutubeLogo from 'phosphor-svelte/lib/YoutubeLogo';
+
+	const dateToday = new Date();
+	const yearToday = dateToday.getFullYear();
 </script>
 
 <footer>
-	<!-- <aside class="items-center grid-flow-col">
-        <p>Copyright © 2023 - All right reserved</p>
-    </aside> -->
+	<p class="copyright-text">Copyright © {yearToday} - All rights reserved</p>
 	<nav class="">
 		<a
 			href="https://instagram.com/kollektiv_irrelevant"
 			class="btn--sm btn--outline btn--outline--blur"
+			target="_blank"
 		>
-			<InstagramLogo />Insta
+			<InstagramLogo />Instagram
 		</a>
 		<a
 			href="https://instagram.com/kollektiv_irrelevant"
-			class="btn--sm btn--outline btn--outline--blur"><TiktokLogo />Tiktok</a
+			class="btn--sm btn--outline btn--outline--blur"
+			target="_blank"
 		>
-		<a
-			href="https://instagram.com/kollektiv_irrelevant"
-			class="btn--sm btn--outline btn--outline--blur"><YoutubeLogo />Youtube</a
-		>
+			<YoutubeLogo />Youtube
+		</a>
 	</nav>
 </footer>
