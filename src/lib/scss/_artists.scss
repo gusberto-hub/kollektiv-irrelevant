@@ -1,0 +1,108 @@
+@use 'index' as *;
+
+#artist-page {
+	.intro-container {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		.artists-about {
+			font-size: $text-base;
+			font-weight: 100;
+			grid-column: 1/-1;
+
+			@include sm-breakpoint {
+				font-size: $text-md;
+				grid-column: 4/-1;
+			}
+		}
+	}
+
+	.category-container {
+		grid-column: 4/-1;
+		align-items: flex-start;
+
+		.title-container {
+			grid-column: 1/4;
+			grid-row: 2;
+			position: sticky;
+			top: var(--main-padding-top);
+			opacity: 0.1;
+			z-index: -1;
+
+			.title {
+				color: $accent;
+				font-size: 8rem;
+
+				@include sm-breakpoint {
+					font-size: 20rem;
+				}
+			}
+		}
+	}
+
+	.artist {
+		&-card {
+			display: grid;
+			gap: $space-lg;
+
+			@include sm-breakpoint {
+				grid-template-columns: repeat(9, 1fr);
+			}
+		}
+
+		&-details {
+			grid-column: 1/6;
+		}
+
+		&-heading {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 1rem;
+
+			.links {
+				display: flex;
+				gap: $space-md;
+				a {
+					svg {
+						width: $text-lg;
+						height: $text-lg;
+
+						@include sm-breakpoint {
+							width: $text-2xl;
+							height: $text-2xl;
+						}
+					}
+				}
+			}
+		}
+
+		&-bio-container {
+			font-weight: 100;
+			font-size: $text-base;
+			line-height: 1.4;
+
+			@include sm-breakpoint {
+				font-size: $text-md;
+			}
+			& .btn-bio {
+				display: none;
+
+				@include sm-breakpoint {
+					display: none;
+				}
+			}
+		}
+
+		&-content {
+			grid-column: 6/-1;
+		}
+
+		&-name {
+			font-size: $text-lg;
+			color: $primary;
+
+			@include sm-breakpoint {
+				font-size: $text-2xl;
+			}
+		}
+	}
+}

@@ -61,12 +61,18 @@ main {
 
 .hero-container {
 	height: 100svh;
+	max-height: 60rem;
 	margin: 0 -2rem;
 	margin-top: calc(var(--main-padding-top) * -1);
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	@include lg-breakpoint {
+		aspect-ratio: 16/9;
+		height: unset;
+	}
 
 	&__wrapper {
 		width: 100%;
@@ -121,7 +127,7 @@ main {
 			h1 {
 				font-size: $text-xl;
 
-				@include sm-breakpoint {
+				@include lg-breakpoint {
 					font-size: $text-3xl;
 				}
 			}
@@ -151,7 +157,8 @@ main {
 	}
 
 	> .title-container {
-		grid-column: 1 / 4;
+		grid-column: 4 / -1;
+		grid-row: 1;
 		padding-bottom: $space-lg;
 
 		.title {
@@ -168,6 +175,7 @@ main {
 		.category-description {
 			font-size: $text-md;
 			font-weight: 100;
+			margin-bottom: 1.5rem;
 
 			@include sm-breakpoint {
 				font-size: $text-lg;
@@ -177,6 +185,7 @@ main {
 
 	& .items-container {
 		grid-column: 4 / -1;
+		grid-row: 2;
 		display: flex;
 		flex-direction: column;
 
@@ -203,15 +212,34 @@ main {
 
 .artist {
 	&-card {
-		border: 8px solid $white;
+		// border: 8px solid $white;
+
+		&__heading {
+			border-bottom: 6px solid $white;
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+			gap: 1rem;
+			padding-bottom: 0.3rem;
+
+			.links {
+				display: flex;
+				gap: 0.5rem;
+				svg {
+					width: 1.8rem;
+					height: 1.8rem;
+					color: $primary;
+				}
+			}
+		}
 	}
+
 	&-title {
-		padding: 1rem;
-		border-bottom: 6px solid $white;
 		color: $primary;
 		font-size: $text-md;
 	}
 	&-image {
+		margin-top: 0.6rem;
 		aspect-ratio: 1/1;
 		img {
 			width: 100%;

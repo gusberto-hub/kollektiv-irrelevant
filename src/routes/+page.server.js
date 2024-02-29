@@ -9,7 +9,7 @@ export async function load() {
 }
 
 const artistsStartPageQuery = {
-	query: `{ artists (where: {onStartPage: true}) { id name artistImage { url } } }`
+	query: `{ artists (where: {onStartPage: true}) { id name artistImage { url } socialLinks { url name } } }`
 };
 
 const getStartPageArtists = () =>

@@ -1,4 +1,6 @@
 <script>
+	import { InstagramLogo, SoundcloudLogo } from 'phosphor-svelte';
+
 	export let artists;
 </script>
 
@@ -14,9 +16,24 @@
 	<div class="items-container items-container--artists">
 		{#each artists as artist}
 			<div class="artist-card">
-				<h3 class="artist-title">
-					{artist.name}
-				</h3>
+				<div class="artist-card__heading">
+					<h3 class="artist-title">
+						{artist.name}
+					</h3>
+					<div class="links">
+						{#each artist.socialLinks as link}
+							<a href={link.url} target="_blank">
+								{#if link.name.toLowerCase() === 'soundcloud'}
+									<SoundcloudLogo />
+								{/if}
+								{#if link.name.toLowerCase() === 'instagram'}
+									<InstagramLogo />
+								{/if}
+							</a>
+						{/each}
+					</div>
+
+				</div>
 				<div class="artist-image">
 					<img class="" src={artist.artistImage?.url} alt={artist.name} />
 				</div>
