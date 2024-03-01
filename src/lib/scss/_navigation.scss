@@ -24,22 +24,40 @@
 	// backdrop-filter: blur(8px);
 
 	.logo-wrapper {
+		--logo-height: 2.4rem;
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		height: 3rem;
+		height: var(--logo-height);
 		width: fit-content;
+
+		@include sm-breakpoint {
+			--logo-height: 3rem;
+		}
 
 		.logo-image {
 			height: 100%;
-			width: 3rem;
+			width: var(--logo-height);
 			margin-right: 4%;
-			transition: transform 100ms ease-out;
+			transition: transform 200ms ease-out;
+			z-index: 0;
+			object-position: center center;
+
+			&.active {
+				transform: scale(12) translate(40%, 80%);
+				opacity: 0.2;
+				pointer-events: none;
+			}
 		}
 
 		.logo-typo {
 			height: 100%;
 			width: auto;
+			transition: opacity 200ms ease-out;
+
+			@include sm-breakpoint {
+				opacity: 1 !important;
+			}
 		}
 	}
 
@@ -92,10 +110,8 @@
 	}
 
 	.mobile-nav {
-		// display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 6rem;
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -107,14 +123,14 @@
 		height: 100svh;
 
 		padding-left: 2rem;
-		padding-top: 8rem;
+		padding-top: var(--main-padding-top);
 		pointer-events: none;
 
 		transition: all 200ms ease-in-out;
 
 		& li a {
-			font-size: $text-2xl;
-			margin-bottom: 2rem;
+			font-size: $text-xl;
+			margin-bottom: $space-lg;
 			font-weight: bold;
 			text-transform: uppercase;
 			width: 100%;
@@ -145,21 +161,23 @@
 		&.menu-open {
 			opacity: 1;
 			pointer-events: all;
-
-			a {
-				animation: fadeIn 200ms ease-out backwards;
-			}
+			animation: moveIn 200ms ease-out backwards;
 		}
 
-		@keyframes fadeIn {
-			from {
+		@keyframes moveIn {
+			0% {
 				opacity: 0;
-				transform: translateX(-2em);
+				transform: translateX(-100%);
+			}
+			80% {
+				opacity: 0.5;
+			}
+			100% {
+				opacity: 1;
 			}
 		}
 	}
 	.mobile-nav-toggle {
-		// position: fixed;
 		top: 2rem;
 		right: 2rem;
 		background: none;

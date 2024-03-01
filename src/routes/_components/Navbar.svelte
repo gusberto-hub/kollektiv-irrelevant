@@ -44,8 +44,14 @@
 			alt="kollektiv irrelevant logo"
 			class="logo-image"
 			style="transform: rotate({logoRotation}deg);"
+			class:active={isOpen}
 		/>
-		<img src={typeLogo} alt="kollektiv irrelevant logo" class="logo-typo" />
+		<img
+			src={typeLogo}
+			alt="kollektiv irrelevant logo"
+			class="logo-typo"
+			style="opacity: {isOpen ? 0 : 1};"
+		/>
 	</a>
 	<nav class="desktop-nav">
 		<div class="nav-items__wrapper">
