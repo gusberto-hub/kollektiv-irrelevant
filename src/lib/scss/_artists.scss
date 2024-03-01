@@ -53,18 +53,19 @@
 		}
 
 		&-details {
-			grid-column: 1/6;
+			grid-column: 4/-1;
 		}
 
 		&-heading {
 			display: flex;
-			justify-content: space-between;
 			margin-bottom: 1rem;
+			gap: 2rem;
 
 			.links {
 				display: flex;
 				gap: $space-md;
 				a {
+					transition: all 200ms ease;
 					svg {
 						width: $text-lg;
 						height: $text-lg;
@@ -73,6 +74,10 @@
 							width: $text-2xl;
 							height: $text-2xl;
 						}
+					}
+
+					&:hover {
+						transform: scale(1.1) translate(-0.3rem, -0.3rem);
 					}
 				}
 			}
@@ -96,7 +101,11 @@
 		}
 
 		&-content {
-			grid-column: 6/-1;
+			grid-column: 1 / 4;
+
+			img {
+				box-shadow: 0rem 0rem 2rem darken($base-100, 4);
+			}
 		}
 
 		&-name {

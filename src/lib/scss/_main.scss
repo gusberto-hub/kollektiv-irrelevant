@@ -52,7 +52,11 @@ html.nav-open {
 }
 
 main {
-	padding: var(--main-padding-top) 2rem 0rem;
+	padding: var(--main-padding-top) 1rem 0rem;
+
+	@include sm-breakpoint {
+		padding: var(--main-padding-top) 2rem 0rem;
+	}
 }
 
 .index-page-section-container {
@@ -97,6 +101,7 @@ main {
 				top: 50%;
 				left: 50%;
 				transform: translateX(-50%) translateY(-50%);
+				border: none;
 			}
 		}
 

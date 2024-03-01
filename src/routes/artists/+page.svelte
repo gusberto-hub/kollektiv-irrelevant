@@ -2,10 +2,11 @@
 	import ArtistCard from './ArtistCard.svelte';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
+	import { onMount } from 'svelte';
 
 	export let data;
 
-	let y = 0;
+	let y;
 
 	const { artists } = data;
 
@@ -13,13 +14,17 @@
 	const fineArtsArtists = artists.filter((artist) => artist.category.includes('arts'));
 
 	const size = tweened(1, {
-		duration: 200,
+		duration: 0,
 		easing: cubicOut
 	});
 
 	function handleClick() {
-		$size = y / 20;
+		$size = y / 50 + 10;
 	}
+
+	onMount(() => {
+		$size = 10;
+	});
 </script>
 
 <section id="artist-page">
@@ -32,7 +37,7 @@
 	</div>
 	<div class="category-container">
 		<div class="title-container">
-			<h1 class="title" style="--blur-amount: {$size}px">Music</h1>
+			<h1 class="title">music</h1>
 		</div>
 
 		<div class="items-container">

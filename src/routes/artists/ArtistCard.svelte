@@ -7,6 +7,11 @@
 </script>
 
 <div class="artist-card">
+	<div class="artist-content">
+		<div class="artist-image">
+			<img class="" src={artist.artistImage?.url} alt={artist.name} />
+		</div>
+	</div>
 	<div class="artist-details">
 		<div class="artist-heading">
 			<h3 class="artist-name">
@@ -38,12 +43,6 @@
 					<p class="artist-bio-text">{artist.artistBio}</p>
 				</div>
 			{/if}
-		</div>
-	</div>
-
-	<div class="artist-content">
-		<div class="artist-image">
-			<img class="" src={artist.artistImage?.url} alt={artist.name} />
 		</div>
 	</div>
 </div>
