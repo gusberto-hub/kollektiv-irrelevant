@@ -29,8 +29,11 @@
 			z-index: -1;
 
 			.title {
-				color: $accent;
+				--blur-amount: 0;
+				color: transparent;
 				font-size: 8rem;
+				text-shadow: 0px 0px var(--blur-amount) $accent;
+				margin-top: -8rem;
 
 				@include sm-breakpoint {
 					font-size: 20rem;

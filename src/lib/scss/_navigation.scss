@@ -34,7 +34,7 @@
 			height: 100%;
 			width: 3rem;
 			margin-right: 4%;
-			animation: slow-spin 16s infinite linear;
+			transition: transform 100ms ease-out;
 		}
 
 		.logo-typo {
@@ -71,8 +71,11 @@
 					border-bottom: 4px solid $white;
 				}
 
+				&.mobile-active {
+					border-bottom: 4px solid $primary;
+				}
+
 				&:active {
-					// background-color: $primary;
 					box-shadow: 4px 4px 0px $primary;
 				}
 			}

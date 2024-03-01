@@ -26,11 +26,25 @@
 
 	let path;
 	$: path = $page.url.pathname;
+
+	let logoRotation;
+
+	const rotateLogo = (e) => {
+		const scrollPosition = e.target.documentElement.scrollTop;
+		logoRotation = scrollPosition / 10;
+	};
 </script>
+
+<svelte:window on:scroll={rotateLogo} />
 
 <header class="navbar">
 	<a class="logo-wrapper" href="/">
-		<img src={logo} alt="kollektiv irrelevant logo" class="logo-image" />
+		<img
+			src={logo}
+			alt="kollektiv irrelevant logo"
+			class="logo-image"
+			style="transform: rotate({logoRotation}deg);"
+		/>
 		<img src={typeLogo} alt="kollektiv irrelevant logo" class="logo-typo" />
 	</a>
 	<nav class="desktop-nav">
