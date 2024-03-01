@@ -1,0 +1,114 @@
+@use 'index' as *;
+
+#about-page {
+	.about-hero-container {
+		display: grid;
+		gap: $space-md;
+		@include sm-breakpoint {
+			grid-template-columns: repeat(12, 1fr);
+		}
+
+		.title {
+			font-size: $text-xl;
+			color: $primary;
+			grid-column: 5/-1;
+			text-transform: uppercase;
+
+			@include sm-breakpoint {
+				font-size: $text-3xl;
+			}
+		}
+
+		.paragraph {
+			font-size: $text-base;
+			font-weight: 100;
+			line-height: 1.4;
+			max-width: 54rem;
+			grid-column: 1/5;
+
+			@include sm-breakpoint {
+				font-size: $text-md;
+			}
+		}
+
+		.image {
+			grid-column: 5/-1;
+			aspect-ratio: 16/9;
+			object-fit: cover;
+		}
+	}
+}
+
+.member {
+	&-container {
+		padding: 8rem 0;
+		display: grid;
+		gap: $space-md;
+		align-items: flex-start;
+
+		@include sm-breakpoint {
+			grid-template-columns: repeat(12, 1fr);
+		}
+	}
+	&-title {
+		font-size: $text-lg;
+		color: $primary;
+		grid-column: 1/4;
+		text-transform: uppercase;
+
+		position: sticky;
+		top: var(--main-padding-top);
+
+		@include sm-breakpoint {
+			font-size: $text-2xl;
+		}
+	}
+	&-wrapper {
+		display: grid;
+		gap: $space-sm;
+		grid-column: 4/-1;
+
+		@include sm-breakpoint {
+			grid-template-columns: 1fr 1fr;
+			gap: $space-lg;
+		}
+	}
+
+	&-card {
+		display: flex;
+		gap: $space-sm;
+		@include sm-breakpoint {
+			gap: $space-lg;
+		}
+
+		&__image-container {
+			max-width: 14rem;
+			flex: 1;
+			img {
+				aspect-ratio: 1/1;
+				object-fit: cover;
+			}
+		}
+
+		&__details {
+			flex: 1;
+			.name {
+				font-size: $text-md;
+				margin-bottom: 0.2em;
+				@include sm-breakpoint {
+					font-size: $text-lg;
+				}
+			}
+
+			.role {
+				font-size: $text-base;
+				font-weight: 100;
+				color: $primary;
+
+				@include sm-breakpoint {
+					font-size: $text-md;
+				}
+			}
+		}
+	}
+}
