@@ -39,7 +39,7 @@
 	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
-	padding: $space-lg;
+	padding: $space-xl;
 
 	.copyright-text {
 		display: none;
@@ -48,9 +48,16 @@
 	footer {
 		nav {
 			display: flex;
-			// flex-direction: column;
-			// justify-content: flex-start;
+			flex-direction: column;
 			gap: 1rem;
+
+			a {
+				border: none;
+				font-size: $text-md;
+				padding: 0;
+				background: none;
+				color: $base-100;
+			}
 		}
 	}
 }

@@ -38,7 +38,7 @@
 <svelte:window on:scroll={rotateLogo} />
 
 <header class="navbar">
-	<a class="logo-wrapper" href="/">
+	<a class="logo-wrapper" href="/" class:active={isOpen}>
 		<img
 			src={logo}
 			alt="kollektiv irrelevant logo"
@@ -46,12 +46,7 @@
 			style="transform: rotate({logoRotation}deg);"
 			class:active={isOpen}
 		/>
-		<img
-			src={typeLogo}
-			alt="kollektiv irrelevant logo"
-			class="logo-typo"
-			style="opacity: {isOpen ? 0 : 1};"
-		/>
+		<img src={typeLogo} alt="kollektiv irrelevant logo" class="logo-typo" />
 	</a>
 	<nav class="desktop-nav">
 		<div class="nav-items__wrapper">
@@ -83,7 +78,11 @@
 			<Footer />
 		</div>
 	</nav>
-	<button on:click={toggleMenu} class="absolute top-4 right-4 z-20 sm:hidden mobile-nav-toggle">
+	<button
+		on:click={toggleMenu}
+		class="absolute top-4 right-4 z-20 sm:hidden mobile-nav-toggle"
+		class:active={isOpen}
+	>
 		<DotsSixVertical weight="bold" class="w-8 h-8" />
 	</button>
 </header>

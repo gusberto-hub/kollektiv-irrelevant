@@ -12,7 +12,11 @@
 	justify-content: space-between;
 	align-items: center;
 	z-index: 10;
-	padding: 1rem 2rem;
+	padding: $space-md $space-md;
+
+	@include sm-breakpoint {
+		padding: 1rem 2rem;
+	}
 
 	// background-color: rgba($base-100, 0.5);
 	background: linear-gradient(
@@ -30,9 +34,15 @@
 		justify-content: flex-start;
 		height: var(--logo-height);
 		width: fit-content;
+		transition: all 200ms ease-out;
 
 		@include sm-breakpoint {
 			--logo-height: 3rem;
+		}
+
+		&.active {
+			opacity: 0;
+			transform: translateX(8rem);
 		}
 
 		.logo-image {
@@ -42,12 +52,6 @@
 			transition: transform 200ms ease-out;
 			z-index: 0;
 			object-position: center center;
-
-			&.active {
-				transform: scale(12) translate(40%, 80%);
-				opacity: 0.2;
-				pointer-events: none;
-			}
 		}
 
 		.logo-typo {
@@ -89,10 +93,6 @@
 					border-bottom: 4px solid $white;
 				}
 
-				&.mobile-active {
-					border-bottom: 4px solid $primary;
-				}
-
 				&:active {
 					box-shadow: 4px 4px 0px $primary;
 				}
@@ -123,22 +123,24 @@
 		height: 100svh;
 
 		padding-left: 2rem;
-		padding-top: var(--main-padding-top);
+		padding-top: 4.5rem;
 		pointer-events: none;
 
 		transition: all 200ms ease-in-out;
 
 		& li a {
 			font-size: $text-xl;
-			margin-bottom: $space-lg;
 			font-weight: bold;
 			text-transform: uppercase;
+			color: $base-100;
+
+			margin-bottom: $space-lg;
 			width: 100%;
 			border-bottom: 8px solid transparent;
 			display: block;
 
 			&.active {
-				border-color: $primary;
+				border-color: $base-100;
 			}
 		}
 
@@ -147,21 +149,23 @@
 		}
 
 		&__bg {
-			background-color: $base-100;
-			opacity: 1;
-			backdrop-filter: blur(10px);
+			height: 100svh;
+			width: 100vw;
+
 			position: absolute;
 			top: 0;
 			left: 0;
-			height: 100svh;
-			width: 100vw;
 			z-index: -1;
+
+			background-color: rgba($primary, 0.8);
+			backdrop-filter: blur(1rem);
+			opacity: 1;
 		}
 
 		&.menu-open {
 			opacity: 1;
 			pointer-events: all;
-			animation: moveIn 200ms ease-out backwards;
+			animation: moveIn 200ms linear backwards;
 		}
 
 		@keyframes moveIn {
@@ -177,13 +181,18 @@
 			}
 		}
 	}
+
 	.mobile-nav-toggle {
 		top: 2rem;
 		right: 2rem;
 		background: none;
 		border: none;
 		padding: $space-xs;
-		color: $white;
+		color: $primary;
+
+		&.active {
+			color: $base-100;
+		}
 
 		@include sm-breakpoint {
 			display: none;
