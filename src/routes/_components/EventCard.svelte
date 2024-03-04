@@ -19,7 +19,7 @@
 			</h3>
 		</div>
 	</div>
-	<div class="image-container p-12 hidden lg:block lg:border-l-8 col-span-4">
-		<img class="w-full" alt={eventData.title} src={eventData.flyerImage?.url} />
+	<div class="flyer-container">
+		<img alt={eventData.title} src={eventData.flyerImage?.url} />
 	</div>
 </a>
