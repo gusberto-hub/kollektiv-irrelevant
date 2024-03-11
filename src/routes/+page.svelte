@@ -4,13 +4,11 @@
 	import NextEvents from './_components/NextEvents.svelte';
 
 	export let data;
-
-	const { events, artists } = data;
 </script>
 
 <div class="hero-container">
 	<div class="hero-container__wrapper">
-		<YoutubeFullscreen videoId="xSNn4EmtumE" />
+		<YoutubeFullscreen videoId={data.projectMetadata.homePageYoutubeId} />
 		<div class="hero-container__wrapper__content">
 			<h1 class="">
 				<span class="">Artist Collective</span> based in Solothurn
@@ -22,6 +20,6 @@
 </div>
 
 <div class="index-page-section-container">
-	<NextEvents {events} />
-	<ArtistSelection {artists} />
+	<NextEvents events={data.events} />
+	<ArtistSelection artists={data.artists} />
 </div>

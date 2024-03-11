@@ -5,7 +5,10 @@ export async function load() {
 	const eventsResponse = await getUpcomingEvents();
 	const artistsResponse = await getStartPageArtists();
 
-	return { events: eventsResponse.data.events, artists: artistsResponse.data.artists };
+	return {
+		events: eventsResponse.data.events,
+		artists: artistsResponse.data.artists
+	};
 }
 
 const artistsStartPageQuery = {

@@ -43,6 +43,11 @@
 		&.active {
 			opacity: 0;
 			transform: translateX(8rem);
+
+			@include sm-breakpoint {
+				opacity: 1;
+				transform: translateX(0);
+			}
 		}
 
 		.logo-image {
@@ -93,8 +98,8 @@
 					border-bottom: 4px solid $white;
 				}
 
-				&:active {
-					box-shadow: 4px 4px 0px $primary;
+				&.active {
+					border-bottom: 4px solid $primary;
 				}
 			}
 		}

@@ -55,7 +55,7 @@
 					on:click={() => (isOpen = false)}
 					href={item.href}
 					style={`animation-delay: ${i * 100}ms`}
-					class:mobile-active={path.includes(item.href)}
+					class:active={path.includes(item.href)}
 					class="nav-items__wrapper__item"
 				>
 					{item.name}
@@ -68,9 +68,9 @@
 		<ul class="">
 			{#each navbarItems as item}
 				<li>
-					<a on:click={closeMenu} href={item.href} class:active={path.includes(item.href)}
-						>{item.name}</a
-					>
+					<a on:click={closeMenu} href={item.href} class:active={path.includes(item.href)}>
+						{item.name}
+					</a>
 				</li>
 			{/each}
 		</ul>
