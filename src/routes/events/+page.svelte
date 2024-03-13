@@ -9,7 +9,7 @@
 </script>
 
 <div class="category-container">
-	<div class="title-container">
+	<div class="title-container first-col">
 		<h1 class="title">upcoming</h1>
 	</div>
 	<div class="items-container">
@@ -30,7 +30,7 @@
 </div>
 
 <div class="category-container">
-	<div class="title-container">
+	<div class="title-container first-col">
 		<h1 class="title">past</h1>
 	</div>
 	<div class="items-container">

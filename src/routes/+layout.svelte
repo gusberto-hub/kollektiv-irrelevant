@@ -8,11 +8,17 @@
 
 <svelte:head>
 	<meta name="description" content={data.projectMetadata.description} />
+	<link rel="stylesheet" href="node_modules/lite-youtube-embed/src/lite-yt-embed.css" />
+	<script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
 	<title>{data.projectMetadata.name}</title>
 </svelte:head>
 
 <div class="main-container">
-	<Navbar />
+	<Navbar
+		youtube={data.projectMetadata.youtubeProfileUrl}
+		instagram={data.projectMetadata.instagramProfileUrl}
+		tiktok={data.projectMetadata.tiktokProfileUrl}
+	/>
 	<main class="">
 		<slot />
 	</main>

@@ -30,9 +30,9 @@
 <section id="artist-page">
 	<div class="intro-container">
 		<p class="artists-about">
-			Hier sind Solothurns kreative Köpfe! <br /> Lokale Künstler, die durch das Kollektiv ihre Werke
-			teilen oder bei unseren Events als DJ oder Live-Musiker auf der Bühne stehen. Entdecke die Macher
-			unserer Stadt!
+			Hier sind Solothurns kreative Köpfe! <br /> Lokale Künstler*innen, die durch das Kollektiv ihre
+			Werke teilen oder bei unseren Events als DJ oder Live-Musiker auf der Bühne stehen. Entdecke die
+			Macher*innen unserer Stadt!
 		</p>
 	</div>
 	<div class="category-container">

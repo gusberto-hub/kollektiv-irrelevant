@@ -4,14 +4,17 @@
 	.intro-container {
 		display: grid;
 		grid-template-columns: repeat(12, 1fr);
+		margin-bottom: $space-3xl;
+
 		.artists-about {
-			font-size: $text-base;
+			font-size: $text-md;
 			font-weight: 100;
 			grid-column: 1/-1;
 
 			@include sm-breakpoint {
 				font-size: $text-md;
 				grid-column: 4/-1;
+				line-height: 1.4;
 			}
 		}
 	}
@@ -24,19 +27,25 @@
 			grid-column: 1/4;
 			grid-row: 2;
 			position: sticky;
-			top: var(--main-padding-top);
+			top: calc(var(--main-padding-top));
 			opacity: 0.1;
 			z-index: -1;
+			max-width: 100%;
+
+			@include sm-breakpoint {
+				top: calc(var(--main-padding-top) + 4rem);
+			}
 
 			.title {
 				--blur-amount: 0;
 				color: transparent;
-				font-size: 8rem;
+				font-size: clamp(6rem, 20vw, 20rem);
 				text-shadow: 0px 0px var(--blur-amount) $accent;
-				margin-top: -8rem;
+				margin-top: 0;
+				text-align: right;
 
 				@include sm-breakpoint {
-					font-size: 20rem;
+					margin-top: -8rem;
 				}
 			}
 		}
@@ -46,6 +55,9 @@
 		&-card {
 			display: grid;
 			gap: $space-lg;
+			padding-bottom: $space-lg;
+
+			border-bottom: 8px solid $white;
 
 			@include sm-breakpoint {
 				grid-template-columns: repeat(9, 1fr);
@@ -53,17 +65,21 @@
 		}
 
 		&-details {
-			grid-column: 4/-1;
+			grid-column: 1/-1;
+			// border: 1px solid blue;
 		}
 
 		&-heading {
 			display: flex;
+			align-items: center;
 			margin-bottom: 1rem;
-			gap: 2rem;
+			gap: 1rem;
 
 			.links {
 				display: flex;
 				gap: $space-md;
+				color: $primary;
+
 				a {
 					transition: all 200ms ease;
 					svg {
@@ -71,8 +87,8 @@
 						height: $text-lg;
 
 						@include sm-breakpoint {
-							width: $text-2xl;
-							height: $text-2xl;
+							width: $text-xl;
+							height: $text-xl;
 						}
 					}
 
@@ -84,12 +100,15 @@
 		}
 
 		&-bio-container {
+			flex: 1;
 			font-weight: 100;
 			font-size: $text-base;
 			line-height: 1.4;
+			margin-top: $space-lg;
 
 			@include sm-breakpoint {
 				font-size: $text-md;
+				margin-top: 0;
 			}
 			& .btn-bio {
 				display: none;
@@ -101,19 +120,27 @@
 		}
 
 		&-content {
-			grid-column: 1 / 4;
+			@include sm-breakpoint {
+				display: flex;
+				gap: $space-lg;
+			}
+		}
 
+		&-image {
+			max-width: 16rem;
+			width: 16rem;
 			img {
 				box-shadow: 0rem 0rem 2rem darken($base-100, 4);
+				aspect-ratio: 1/1;
+				object-fit: cover;
 			}
 		}
 
 		&-name {
 			font-size: $text-lg;
-			color: $primary;
 
 			@include sm-breakpoint {
-				font-size: $text-2xl;
+				font-size: $text-xl;
 			}
 		}
 	}

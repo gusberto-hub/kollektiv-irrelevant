@@ -15,9 +15,9 @@
 	</div>
 	<div class="items-container items-container--artists">
 		{#each artists as artist}
-			<div class="artist-card">
-				<div class="artist-card__heading">
-					<h3 class="artist-title">
+			<div class="featured-artist-card">
+				<div class="featured-artist-card__heading">
+					<h3 class="featured-artist-title">
 						{artist.name}
 					</h3>
 					<div class="links">
@@ -32,9 +32,8 @@
 							</a>
 						{/each}
 					</div>
-
 				</div>
-				<div class="artist-image">
+				<div class="featured-artist-image">
 					<img class="" src={artist.artistImage?.url} alt={artist.name} />
 				</div>
 			</div>

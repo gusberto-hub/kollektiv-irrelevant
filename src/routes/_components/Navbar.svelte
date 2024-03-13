@@ -5,6 +5,10 @@
 	import { page } from '$app/stores';
 	import Footer from './Footer.svelte';
 
+	export let youtube = '';
+	export let tiktok = '';
+	export let instagram = '';
+
 	const navbarItems = [
 		{ name: 'Events', href: '/events' },
 		{ name: 'Artists', href: '/artists' },
@@ -20,7 +24,6 @@
 
 	const toggleMenu = () => {
 		isOpen = !isOpen;
-		console.log(window);
 		window.document.documentElement.classList.toggle('nav-open');
 	};
 
@@ -75,7 +78,7 @@
 			{/each}
 		</ul>
 		<div class="mobile-nav-footer">
-			<Footer />
+			<Footer {youtube} {instagram} {tiktok} />
 		</div>
 	</nav>
 	<button

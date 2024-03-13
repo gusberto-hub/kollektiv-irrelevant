@@ -18,6 +18,8 @@ body {
 	background: $base-100;
 	color: $white;
 	font-family: 'Anybody';
+	line-height: 1.2;
+	letter-spacing: 0.08em;
 }
 
 ul {
@@ -175,13 +177,15 @@ main {
 	> .title-container {
 		grid-column: 4 / -1;
 		grid-row: 1;
-		padding-bottom: $space-lg;
+
+		&.first-col {
+			grid-column-start: 1;
+		}
 
 		.title {
 			font-size: $text-xl;
 			text-transform: uppercase;
 			hyphens: auto;
-			margin-bottom: $space-lg;
 
 			@include sm-breakpoint {
 				font-size: $text-2xl;
@@ -226,7 +230,7 @@ main {
 	}
 }
 
-.artist {
+.featured-artist {
 	&-card {
 		&__heading {
 			border-bottom: 6px solid $white;
@@ -249,14 +253,12 @@ main {
 	}
 
 	&-title {
-		color: $primary;
 		font-size: $text-md;
 	}
 	&-image {
 		margin-top: 0.6rem;
 		aspect-ratio: 1/1;
 		max-width: 47vw;
-		margin-left: auto;
 
 		@include sm-breakpoint {
 			max-width: none;

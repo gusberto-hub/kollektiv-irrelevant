@@ -35,6 +35,7 @@
 			grid-column: 5/-1;
 			aspect-ratio: 16/9;
 			object-fit: cover;
+			grid-row-start: 2;
 		}
 	}
 }
@@ -56,34 +57,41 @@
 		grid-column: 1/4;
 		text-transform: uppercase;
 
-		position: sticky;
 		top: var(--main-padding-top);
 
 		@include sm-breakpoint {
 			font-size: $text-2xl;
+			position: sticky;
+			z-index: -1;
 		}
 	}
 	&-wrapper {
 		display: grid;
 		gap: $space-sm;
-		grid-column: 4/-1;
 
 		@include sm-breakpoint {
 			grid-template-columns: 1fr 1fr;
+			grid-column: 1/-1;
+			grid-row-start: 2;
 			gap: $space-lg;
+		}
+
+		@include md-breakpoint {
+			grid-column: 4/-1;
 		}
 	}
 
 	&-card {
-		display: flex;
+		display: grid;
+		grid-template-columns: auto 1fr;
 		gap: $space-sm;
 		@include sm-breakpoint {
 			gap: $space-lg;
+			grid-template-columns: 2fr 3fr;
 		}
 
 		&__image-container {
 			max-width: 14rem;
-			flex: 1;
 			img {
 				aspect-ratio: 1/1;
 				object-fit: cover;
@@ -91,7 +99,6 @@
 		}
 
 		&__details {
-			flex: 1;
 			.name {
 				font-size: $text-md;
 				margin-bottom: 0.2em;

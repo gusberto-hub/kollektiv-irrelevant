@@ -1,9 +1,5 @@
 @use 'index' as *;
 
-.test-class {
-	color: $primary;
-}
-
 .event-card {
 	border: 8px solid $white;
 	display: grid;
@@ -12,13 +8,11 @@
 
 	@include sm-breakpoint {
 		grid-template-columns: repeat(9, 1fr);
-	}
 
-	&:hover {
-		box-shadow: 0px 0px 32px $accent;
-
-		img {
-			transform: rotate(2deg) scale(1.05);
+		&:hover {
+			img {
+				transform: rotate(2deg) scale(1.05);
+			}
 		}
 	}
 
@@ -67,10 +61,10 @@
 		}
 	}
 	.flyer-container {
-		// display: none;
-		padding: $space-2xl;
+		padding: $space-md;
 
 		@include sm-breakpoint {
+			padding: $space-2xl;
 			display: block;
 			padding: 2.5rem;
 			grid-column: 6 / -1;
