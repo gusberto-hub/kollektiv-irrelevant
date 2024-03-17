@@ -42,7 +42,7 @@
 
 .member {
 	&-container {
-		padding: 8rem 0;
+		padding: 8rem 0 $space-sm;
 		display: grid;
 		gap: $space-md;
 		align-items: flex-start;
@@ -54,7 +54,6 @@
 	&-title {
 		font-size: $text-lg;
 		color: $primary;
-		grid-column: 1/4;
 		text-transform: uppercase;
 
 		top: var(--main-padding-top);
@@ -62,12 +61,14 @@
 		@include sm-breakpoint {
 			font-size: $text-2xl;
 			position: sticky;
+			grid-column: 1/4;
 			z-index: -1;
 		}
 	}
 	&-wrapper {
 		display: grid;
 		gap: $space-sm;
+		width: 100%;
 
 		@include sm-breakpoint {
 			grid-template-columns: 1fr 1fr;
@@ -83,15 +84,15 @@
 
 	&-card {
 		display: grid;
-		grid-template-columns: auto 1fr;
+		grid-template-columns: 1fr 1fr;
 		gap: $space-sm;
-		@include sm-breakpoint {
-			gap: $space-lg;
+
+		@include xs-breakpoint {
+			gap: $space-md;
 			grid-template-columns: 2fr 3fr;
 		}
 
 		&__image-container {
-			max-width: 14rem;
 			img {
 				aspect-ratio: 1/1;
 				object-fit: cover;
@@ -102,19 +103,12 @@
 			.name {
 				font-size: $text-md;
 				margin-bottom: 0.2em;
-				@include sm-breakpoint {
-					font-size: $text-lg;
-				}
 			}
 
 			.role {
 				font-size: $text-base;
 				font-weight: 100;
 				color: $primary;
-
-				@include sm-breakpoint {
-					font-size: $text-md;
-				}
 			}
 		}
 	}
