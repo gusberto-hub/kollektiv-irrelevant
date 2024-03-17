@@ -68,3 +68,5 @@ export const getPageMetaData = () => {
 		.then((data) => data.data)
 		.catch((err) => console.log(err));
 };
+
+console.log(getPageMetaData());
