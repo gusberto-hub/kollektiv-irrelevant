@@ -79,6 +79,9 @@ $button-colors: (
 		@include btn;
 		position: relative;
 		overflow: hidden;
+		background: none;
+		border: none;
+		cursor: pointer;
 
 		&::before {
 			content: '';

@@ -7,11 +7,6 @@
 </svelte:head>
 
 <div class="video-container">
-	<img
-		src="https://www.promises.com/wp-content/uploads/2017/03/Rave-Parties-Safety-and-Precautions-1200x675.jpeg"
-		class="hero-image-fallback"
-		alt="people dancing"
-	/>
 	<iframe
 		src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=0&autoplay=1&mute=1&playsinline=1&playlist=${videoId}&loop=1`}
 		title="YouTube video player"
@@ -19,3 +14,31 @@
 	/>
 	<div class="bg-overlay" />
 </div>
+
+<style lang="scss">
+	.video-container {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+		pointer-events: none;
+
+		iframe {
+			display: block;
+			height: 100%;
+			width: 177.77vh;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			border: none;
+		}
+	}
+
+	.bg-overlay {
+		background-color: $base-100;
+		position: absolute;
+		inset: 0;
+		opacity: 0.8;
+	}
+</style>
