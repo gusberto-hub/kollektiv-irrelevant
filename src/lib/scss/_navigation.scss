@@ -43,6 +43,7 @@
 		&.active {
 			opacity: 0;
 			transform: translateX(8rem);
+			pointer-events: none;
 
 			@include sm-breakpoint {
 				opacity: 1;
@@ -188,12 +189,12 @@
 	}
 
 	.mobile-nav-toggle {
-		top: 2rem;
-		right: 2rem;
 		background: none;
 		border: none;
 		padding: $space-xs;
 		color: $primary;
+		cursor: pointer;
+		transition: color 400ms linear;
 
 		&.active {
 			color: $base-100;

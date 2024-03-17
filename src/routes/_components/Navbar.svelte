@@ -4,6 +4,7 @@
 	import { DotsSixVertical } from 'phosphor-svelte';
 	import { page } from '$app/stores';
 	import Footer from './Footer.svelte';
+	import { afterNavigate } from '$app/navigation';
 
 	export let youtube = '';
 	export let tiktok = '';
@@ -18,9 +19,11 @@
 	let isOpen = false;
 
 	const closeMenu = () => {
-		setTimeout(() => (isOpen = false), 200);
+		isOpen = false;
 		window.document.documentElement.classList.remove('nav-open');
 	};
+
+	afterNavigate(() => closeMenu());
 
 	const toggleMenu = () => {
 		isOpen = !isOpen;
@@ -71,7 +74,7 @@
 		<ul class="">
 			{#each navbarItems as item}
 				<li>
-					<a on:click={closeMenu} href={item.href} class:active={path.includes(item.href)}>
+					<a href={item.href} class:active={path.includes(item.href)}>
 						{item.name}
 					</a>
 				</li>
