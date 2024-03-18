@@ -16,7 +16,7 @@
 		};
 
 		p5.draw = () => {
-			p5.background(p5.color(0, 0, 20));
+			p5.background(p5.color(0, 0, 0));
 
 			const mouseIsMoving = p5.pmouseX !== p5.mouseX || p5.pmouseY !== p5.mouseY;
 
@@ -24,11 +24,11 @@
 
 			for (let i = 0; i < elements.length; i++) {
 				const el = elements[i];
-				const r = p5.map(i, trailLength / 3, trailLength, 0, 255);
-				const g = p5.map(i, (trailLength / 3) * 2, trailLength, 0, 223);
-				const b = p5.map(i, 0, (trailLength / 3) * 2, 255, 100);
+				const r = p5.map(i, trailLength * 0.25, trailLength, 0, 255);
+				const g = p5.map(i, trailLength * 0.75, trailLength, 0, 223);
+				const b = p5.map(i, 0, trailLength * 0.75, 255, 100);
 				p5.fill(p5.color(r, g, b));
-				p5.ellipse(el.x, el.y, 50, i + 50);
+				p5.ellipse(el.x, el.y, i * 2, i * 4);
 			}
 
 			if (mouseIsMoving) {
