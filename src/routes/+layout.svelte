@@ -4,6 +4,8 @@
 	import Navbar from './_components/Navbar.svelte';
 	import P5 from 'p5-svelte';
 
+	export let data;
+
 	const elements = [];
 	const trailLength = 30;
 
@@ -38,8 +40,6 @@
 
 <svelte:head>
 	<meta name="description" content={data.projectMetadata.description} />
-	<link rel="stylesheet" href="node_modules/lite-youtube-embed/src/lite-yt-embed.css" />
-	<script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
 	<title>{data.projectMetadata.name}</title>
 </svelte:head>
 
