@@ -3,16 +3,17 @@
 .event-card {
 	border: 8px solid $white;
 	display: grid;
-	transition: box-shadow 100ms ease;
+	transition: box-shadow 100ms ease-in;
 	grid-template-columns: 1fr;
+	box-shadow: 0px 0px 0px $secondary;
 
 	@include sm-breakpoint {
 		grid-template-columns: repeat(9, 1fr);
 
-		&:hover {
-			img {
-				transform: rotate(2deg) scale(1.05);
-			}
+	&:hover {
+		box-shadow: 4px 16px 0px $secondary;
+		img {
+			transform: rotate(2deg) scale(1.05);
 		}
 	}
 

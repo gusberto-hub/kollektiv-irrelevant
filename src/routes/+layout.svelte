@@ -4,8 +4,8 @@
 	import Navbar from './_components/Navbar.svelte';
 	import P5 from 'p5-svelte';
 
-	let frameCounter = 0;
-	let trail = [];
+	const elements = [];
+	const trailLength = 30;
 
 	const sketch = (p5) => {
 		p5.setup = () => {
@@ -14,29 +14,24 @@
 		};
 
 		p5.draw = () => {
-			p5.background('#0e0e1a');
+			p5.background(p5.color(0, 0, 20));
 
-			p5.fill('#fb0089');
+			const mouseIsMoving = p5.pmouseX !== p5.mouseX || p5.pmouseY !== p5.mouseY;
 
-			trail.push(p5.createVector(p5.mouseX, p5.mouseY));
+			(elements.length > trailLength || !mouseIsMoving) && elements.shift();
 
-			// if (p5.mouseX !== p5.pmouseX || p5.mouseY !== p5.pmouseY) {
-			// 	trail.push(p5.createVector(p5.mouseX, p5.mouseY));
-			// } else {
-			// 	trail.shift();
-			// }
-
-			if (trail.length > 80) {
-				trail.shift();
+			for (let i = 0; i < elements.length; i++) {
+				const el = elements[i];
+				const r = p5.map(i, trailLength / 3, trailLength, 0, 255);
+				const g = p5.map(i, (trailLength / 3) * 2, trailLength, 0, 223);
+				const b = p5.map(i, 0, (trailLength / 3) * 2, 255, 100);
+				p5.fill(p5.color(r, g, b));
+				p5.ellipse(el.x, el.y, 50, i + 50);
 			}
 
-			for (let i = 0; i < trail.length; i++) {
-				const curr = trail[i];
-				// const currD = i < 50 ? p5.map(i, 0, 50, 0, 99) : p5.map(i, 50, 100, 99, 0);
-				p5.circle(curr.x, curr.y, 60);
+			if (mouseIsMoving) {
+				elements.push({ x: p5.mouseX, y: p5.mouseY });
 			}
-
-			// frameCounter < 500 ? frameCounter++ : (frameCounter = 0);
 		};
 	};
 </script>
@@ -68,9 +63,14 @@
 <style>
 	.canvas {
 		position: fixed;
-		inset: 0;
-		z-index: -1;
-		/* filter: blur(20px); */
-		/* border: 2px solid red; */
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		z-index: 10;
+		mix-blend-mode: lighten;
+		pointer-events: none;
+		filter: blur(20px);
+		transform: translateZ(0);
 	}
 </style>
