@@ -14,7 +14,7 @@
 		};
 
 		p5.draw = () => {
-			p5.background(p5.color(0, 0, 20));
+			p5.background(p5.color(0, 0, 0));
 
 			const mouseIsMoving = p5.pmouseX !== p5.mouseX || p5.pmouseY !== p5.mouseY;
 
