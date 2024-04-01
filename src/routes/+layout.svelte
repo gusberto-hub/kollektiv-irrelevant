@@ -47,7 +47,11 @@
 	<div class="canvas">
 		<P5 {sketch} />
 	</div>
-	<Navbar />
+	<Navbar
+		youtube={data.projectMetadata.youtubeProfileUrl}
+		instagram={data.projectMetadata.instagramProfileUrl}
+		tiktok={data.projectMetadata.tiktokProfileUrl}
+	/>
 	<main class="">
 		<slot />
 	</main>
