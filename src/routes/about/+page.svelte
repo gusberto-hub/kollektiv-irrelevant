@@ -17,18 +17,14 @@
 	<div class="member-container">
 		<h1 class="member-title">die Irrelevanten</h1>
 		<div class="member-wrapper">
-			{#each data.teamMembersConnection.edges as member}
+			{#each data.page.teamMembers.teamMembers as member}
 				<div class="member-card">
 					<div class="member-card__image-container">
-						<img
-							class=""
-							src={member.node.picture.url}
-							alt={member.node.name + ' ' + member.node.role}
-						/>
+						<img class="" src={member.picture.url} alt={member.name + ' ' + member.role} />
 					</div>
 					<div class="member-card__details">
-						<p class="name">{member.node.name}</p>
-						<p class="role">{member.node.role}</p>
+						<p class="name">{member.name}</p>
+						<p class="role">{member.role}</p>
 					</div>
 				</div>
 			{/each}

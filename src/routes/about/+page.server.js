@@ -1,24 +1,23 @@
 import hygraphApi from '../../helpers/axios';
 
 export async function load() {
-	const teamMembers = await getStartPageArtists();
+	const teamMembers = await getAboutPageData();
+	// console.log('🚀', teamMembers);
 	return teamMembers.data;
 }
 
-const getStartPageArtists = () =>
+const getAboutPageData = () =>
 	hygraphApi
 		.post('', {
 			query: `{page(where: {pageTitle: "About"}) {
 			  pageTitle
 			  pageDescription
-			}
-			teamMembersConnection(orderBy: name_DESC) {
-			  edges {
-				node {
+			  teamMembers {
+				teamMembers {
 				  name
 				  role
 				  picture {
-					url
+				  url
 				  }
 				}
 			  }

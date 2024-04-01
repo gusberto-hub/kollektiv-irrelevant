@@ -12,7 +12,6 @@
 </script>
 
 <footer>
-	<p class="copyright-text">Copyright © {yearToday} - All rights reserved</p>
 	<nav class="">
 		{#if instagram}
 			<a href={instagram} class="btn--sm btn--outline btn--outline--blur" target="_blank">

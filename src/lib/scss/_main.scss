@@ -238,10 +238,12 @@ main {
 			justify-content: space-between;
 			align-items: flex-end;
 			gap: 1rem;
-			padding-bottom: 0.3rem;
+			padding-bottom: 0.1rem;
+			min-height: 3rem;
 
 			.links {
 				display: flex;
+				align-items: flex-end;
 				gap: 0.5rem;
 				svg {
 					width: 1.8rem;

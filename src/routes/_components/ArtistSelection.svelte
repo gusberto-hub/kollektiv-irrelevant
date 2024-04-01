@@ -6,11 +6,7 @@
 
 <div class="category-container">
 	<div class="title-container">
-		<h2 class="title">our artists</h2>
-		<p class="category-description">
-			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident eligendi beatae quo et
-			fugiat nulla doloribus? Inventore modi hic quia?
-		</p>
+		<h2 class="title">featured artists</h2>
 		<a href="/artists" class="btn btn--md btn--primary">all artists</a>
 	</div>
 	<div class="items-container items-container--artists">

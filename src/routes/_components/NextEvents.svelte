@@ -7,10 +7,6 @@
 	{#if events.length > 0}
 		<div class="title-container">
 			<h2 class="title">next events</h2>
-			<p class="category-description">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui sit nam dolorem laboriosam
-				asperiores earum sapiente dolores officiis modi impedit.
-			</p>
 		</div>
 		<div class="items-container items-container--events">
 			{#each events as event}
