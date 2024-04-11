@@ -105,11 +105,11 @@
 	}
 
 	.details-container {
-		grid-column: 4/-1;
 		padding: $space-md;
 
 		@include sm-breakpoint {
 			border-left: 8px solid $white;
+			grid-column: 4/-1;
 		}
 
 		.title {

@@ -7,7 +7,7 @@ export const getUpcomingEvents = () => {
 	return hygraphApi
 		.post('', {
 			query: `{
-			events(where: { OR: [{ startDate_gte: "${formattedDate}" }] }) {
+			events(where: { startDate_gte: "${formattedDate}" }, orderBy: startDate_ASC) {
 				id
 				title
 				aboutEvent
@@ -36,7 +36,7 @@ export const getPastEvents = () => {
 	return hygraphApi
 		.post('', {
 			query: `{
-			events(where: { OR: [{ startDate_lte: "${formattedDate}" }] }) {
+			events(where: { startDate_lte: "${formattedDate}" }, orderBy: startDate_DESC) {
 				id
 				title
 				aboutEvent
