@@ -16,12 +16,6 @@ const artistsQuery = {
 			name
 			url
 		  }
-		  social {
-			instagramUrl
-			tikTokUrl
-			soundCloudUrl
-			youTubeUrl
-		  }
 		  artistImage {
 			url
 		  }

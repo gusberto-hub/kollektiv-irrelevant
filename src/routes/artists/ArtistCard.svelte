@@ -4,7 +4,9 @@
 		InstagramLogo,
 		LinkSimple,
 		SoundcloudLogo,
-		YoutubeLogo
+		YoutubeLogo,
+		AppleLogo,
+		SpotifyLogo
 	} from 'phosphor-svelte';
 
 	let showBio = false;
@@ -18,7 +20,6 @@
 			<h3 class="artist-name">
 				{artist.name}
 			</h3>
-			<!-- <div class="artist-socials"> -->
 			{#if artist.socialLinks.length > 0}
 				<div class="links">
 					{#each artist.socialLinks as link}
@@ -29,6 +30,10 @@
 								<InstagramLogo />
 							{:else if link.name.toLowerCase() === 'youtube'}
 								<YoutubeLogo />
+							{:else if link.name.toLowerCase() === 'spotify'}
+								<SpotifyLogo />
+							{:else if link.name.toLowerCase().includes('apple')}
+								<AppleLogo />
 							{:else}
 								<LinkSimple />
 							{/if}
