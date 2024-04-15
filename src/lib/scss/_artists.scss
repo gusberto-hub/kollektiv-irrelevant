@@ -66,14 +66,20 @@
 
 		&-details {
 			grid-column: 1/-1;
-			// border: 1px solid blue;
 		}
 
 		&-heading {
 			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 			align-items: center;
 			margin-bottom: 1rem;
-			gap: 1rem;
+			column-gap: 1rem;
+			row-gap: 0;
+
+			@include sm-breakpoint {
+				justify-content: flex-start;
+			}
 
 			.links {
 				display: flex;
