@@ -8,7 +8,7 @@
 
 		.artists-about {
 			font-size: $text-md;
-			font-weight: 100;
+			font-weight: $font-light;
 			grid-column: 1/-1;
 
 			@include sm-breakpoint {
@@ -107,7 +107,7 @@
 
 		&-bio-container {
 			flex: 1;
-			font-weight: 100;
+			font-weight: $font-light;
 			font-size: $text-base;
 			line-height: 1.4;
 			margin-top: $space-lg;

@@ -20,13 +20,27 @@ const getEvent = (slug) =>
 					endDate
 					flyerImage {
 					  fileName
-					  url
+					  url (transformation: { 
+						image: { 
+							resize: {
+								width: 1000
+							}
+						}
+					}
+				)
 					  width
 					}
 					artists {
 						name
 						artistImage {
-						  url
+						  url (transformation: { 
+							image: { 
+								resize: {
+									height: 600
+								}
+							}
+						}
+					)
 						}
 						socialLinks {
 						  name

@@ -1,7 +1,7 @@
 <script>
+	import { InstagramLogo, ArrowDown } from 'phosphor-svelte';
 	import formatDateRange from '../../helpers/formatDateRange';
 	import EventCard from '../_components/EventCard.svelte';
-	import YoutubeNormal from '../_components/YoutubeNormal.svelte';
 	import MapPin from 'phosphor-svelte/lib/MapPin';
 
 	export let data;
@@ -10,7 +10,11 @@
 
 <div class="category-container">
 	<div class="title-container first-col">
-		<h1 class="title">upcoming</h1>
+		{#if upcomingEvents.length > 0}
+			<h1 class="title">upcoming</h1>
+		{:else}
+			<h1 class="title">Be patient</h1>
+		{/if}
 	</div>
 	<div class="items-container">
 		{#if upcomingEvents.length > 0}
@@ -18,12 +22,11 @@
 				<EventCard eventData={event} />
 			{/each}
 		{:else}
-			<p class="md:text-xl">
-				Oh-oh! Es stehen gerade keine kommenden Events an. <br /> 🎉 Aber keine Sorge, wir arbeiten
-				ständig an neuen Raves und Konzerten. <br /> Bleib dran für die neuesten Updates!
-			</p>
-			<div class="w-full">
-				<YoutubeNormal videoId="4miQbvobysg" />
+			<div class="no-events-box">
+				<ArrowDown />
+				<p class="no-events-box__p">
+					Upcoming events yet to be published. <br /> Meanwhile check out or past Events
+				</p>
 			</div>
 		{/if}
 	</div>
@@ -38,7 +41,7 @@
 			<a class="event-card event-card--small" href={`/events/${event.slug}`}>
 				<div class="date-container">
 					<h4 class="date">
-						{formatDateRange(event.startDate, event.endDate)}
+						{formatDateRange(event.startDate, event.endDate, true)}
 					</h4>
 					<!-- <a href={`/events/${event.slug}`} class="btn--sm btn--outline"> more </a> -->
 				</div>

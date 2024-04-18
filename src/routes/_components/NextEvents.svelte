@@ -1,4 +1,5 @@
 <script>
+	import { InstagramLogo } from 'phosphor-svelte';
 	import EventCard from './EventCard.svelte';
 	export let events;
 </script>
@@ -15,9 +16,9 @@
 		</div>
 	{:else}
 		<div class="no-events-container">
-			<h2 class="title">No events yet</h2>
-			<p class="text-xl">follow us on instagram to be the first to hear about the newest events</p>
-			<button class="btn btn--outline"><a href="https://instagram">Follow</a></button>
+			<h2>Upcoming events yet to be published</h2>
+			<p>Follow us on to be the first to hear about the newest events</p>
+			<a class="btn--md btn--outline" href="https://instagram"><InstagramLogo /></a>
 		</div>
 	{/if}
 </section>

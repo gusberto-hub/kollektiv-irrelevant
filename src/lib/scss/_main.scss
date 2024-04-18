@@ -35,6 +35,10 @@ img {
 	width: 100%;
 }
 
+p {
+	font-weight: $font-light;
+}
+
 html.nav-open {
 	height: 100vh;
 	width: 100vw;
@@ -194,7 +198,7 @@ main {
 
 		.category-description {
 			font-size: $text-md;
-			font-weight: 100;
+			font-weight: $font-light;
 			margin-bottom: 1.5rem;
 
 			@include sm-breakpoint {
@@ -227,6 +231,28 @@ main {
 
 	& .no-events-container {
 		grid-column: 4 / -1;
+
+		h2 {
+			font-size: $text-2xl;
+			text-transform: uppercase;
+			margin-bottom: $space-xs;
+		}
+
+		p {
+			font-size: $text-md;
+			margin-bottom: $space-2xl;
+		}
+
+		a {
+			margin-right: $space-xs;
+			margin-bottom: $space-lg;
+		}
+
+		&__p {
+			border: 6px solid $white;
+			padding: $space-xl;
+			font-size: $text-lg !important;
+		}
 	}
 }
 
@@ -271,5 +297,13 @@ main {
 			height: 100%;
 			object-fit: cover;
 		}
+	}
+}
+
+.more-artists-card {
+	a {
+		width: 100%;
+		height: 100%;
+		justify-content: center;
 	}
 }

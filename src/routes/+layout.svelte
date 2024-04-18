@@ -69,7 +69,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		height: 100vh;
+		height: 100svh;
 		width: 100vw;
 		z-index: 10;
 		mix-blend-mode: lighten;

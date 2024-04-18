@@ -17,7 +17,14 @@ const artistsQuery = {
 			url
 		  }
 		  artistImage {
-			url
+			url (transformation: { 
+				image: { 
+					resize: {
+						height: 600
+					}
+				}
+			}
+		)
 		  }
 		}
 	  }`,

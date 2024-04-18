@@ -46,11 +46,6 @@ export const getPastEvents = () => {
 				ticketsLink
 				startDate
 				endDate
-				flyerImage {
-					fileName
-					url
-					width
-				}
 			}
 		}`
 		})

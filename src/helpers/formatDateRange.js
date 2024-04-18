@@ -1,4 +1,4 @@
-export default function formatDateRange(start, end) {
+export default function formatDateRange(start, end, alwaysShowYear = false) {
 	const startDate = new Date(start);
 	const endDate = end ? new Date(end) : null;
 	const yearToday = new Date().getFullYear();
@@ -12,7 +12,7 @@ export default function formatDateRange(start, end) {
 		return startDate.toLocaleDateString('en-GB', {
 			day: '2-digit',
 			month: 'short',
-			year: !startsThisYear ? '2-digit' : undefined
+			year: alwaysShowYear ? '2-digit' : !startsThisYear ? '2-digit' : undefined
 		});
 	}
 

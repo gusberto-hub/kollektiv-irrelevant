@@ -21,7 +21,7 @@
 
 		.paragraph {
 			font-size: $text-base;
-			font-weight: 100;
+			font-weight: $font-light;
 			line-height: 1.4;
 			max-width: 54rem;
 			grid-column: 1/5;
@@ -107,7 +107,7 @@
 
 			.role {
 				font-size: $text-base;
-				font-weight: 100;
+				font-weight: $font-light;
 				color: $primary;
 			}
 		}

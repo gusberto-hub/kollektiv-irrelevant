@@ -7,7 +7,6 @@
 <div class="category-container">
 	<div class="title-container">
 		<h2 class="title">featured artists</h2>
-		<a href="/artists" class="btn btn--md btn--primary">all artists</a>
 	</div>
 	<div class="items-container items-container--artists">
 		{#each artists as artist}
@@ -34,5 +33,8 @@
 				</div>
 			</div>
 		{/each}
+		<div class="featured-artist-card more-artists-card">
+			<a href="/artists" class="btn btn--md btn--primary">all artists</a>
+		</div>
 	</div>
 </div>
