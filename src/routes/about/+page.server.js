@@ -2,7 +2,6 @@ import hygraphApi from '../../helpers/axios';
 
 export async function load() {
 	const teamMembers = await getAboutPageData();
-	// console.log('🚀', teamMembers);
 	return teamMembers.data;
 }
 
