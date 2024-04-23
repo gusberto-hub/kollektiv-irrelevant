@@ -241,11 +241,10 @@ main {
 		p {
 			font-size: $text-md;
 			margin-bottom: $space-2xl;
-		}
-
-		a {
-			margin-right: $space-xs;
-			margin-bottom: $space-lg;
+			display: flex;
+			flex-wrap: wrap;
+			gap: $space-md;
+			align-items: center;
 		}
 
 		&__p {

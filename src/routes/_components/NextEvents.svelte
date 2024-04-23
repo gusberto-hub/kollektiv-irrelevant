@@ -17,8 +17,10 @@
 	{:else}
 		<div class="no-events-container">
 			<h2>Upcoming events yet to be published</h2>
-			<p>Follow us on to be the first to hear about the newest events</p>
-			<a class="btn--md btn--outline" href="https://instagram"><InstagramLogo /></a>
+			<p>
+				<a class="btn--md btn--outline" href="https://instagram"><InstagramLogo />Follow</a>
+				us on to be the first to hear about the newest events
+			</p>
 		</div>
 	{/if}
 </section>
